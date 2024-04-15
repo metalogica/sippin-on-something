@@ -1,13 +1,28 @@
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpine JS</title>
     <script defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 100
+        }
+      }
+
+      .choice {
+        animation: fadeIn 500ms forwards;
+      }
+    </style>
   </head>
   <body>
-    <div x-data>
+    <div x-cloak x-data>
       <template x-if="$store.quiz.state === STATE.NOT_STARTED">
         <div>
           <h1>Quiz</h1>
@@ -18,12 +33,14 @@
 
       <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
         <div>
+          <h2>A Round</h2>
           <p x-text="$store.quiz.score"></p>
           <p x-text="$store.quiz.round.question"></p>
           <template x-for="choice in $store.quiz.round.choices">
             <button
+              class="choice"
               x-text="choice"
-              @click="event => $store.quiz.guess(event)"></button>
+              @click="event => $store.quiz.guess(event); $nextTick(fadeInChoices)"></button>
           </template>
         </div>
       </template>
@@ -36,6 +53,20 @@
       </template>
     </div>
     <script>
+      const fadeInChoices = () => Array.from(
+        document.querySelectorAll('.choice'))
+          .map(choice => {
+            choice.animate([
+              { opacity: 100 },
+              { opacity: 0 }, 
+              { opacity: 100 },
+            ], {
+              duration: 500,
+              iterations: 1,
+            }
+        )
+      });
+
       const STATE = {
         NOT_STARTED: 0,
         IN_PROGRESS: 1,
@@ -57,6 +88,11 @@
           question: `What is the capital of Australia?`,
           answer: `Canberra`,
           choices: [`Canberra`, `Melbourne`, `Sydney`],
+        },
+        {
+          question: `Who is the president of the USA?`,
+          answer: `Joe Biden`,
+          choices: [`Joe Biden`, `Donald Trump`, `JFK`],
         }
       ];
 
@@ -74,11 +110,11 @@
             if (this.completed) {
               return;
             }
-
+            
             if (event.target.innerText === this.round.answer) {
               this.score += 1;
             }
-
+            
             
             const nextRound = ROUNDS[CURRENT_ROUND + 1];
             if (nextRound) {
