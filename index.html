@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine JS</title>
+    <script defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <div x-data>
+      <p x-text="$store.quiz.score"></p>
+      <p x-text="$store.quiz.round.question"></p>
+      <template x-for="choice in $store.quiz.round.choices">
+        <button
+          x-text="choice"
+          x-on:click="event => $store.quiz.guess(event)"></button>
+      </template>
+    </div>
+    <script>
+      const rounds = [
+        {
+          question: `What is the chemical element for the symbol 'O'?`,
+          answer: `Oxygen`,
+          choices: [`Oxygen`, `Fluoride`, `Nitrogen`]
+        },
+        {
+          roundNumber: 2,
+          question: `Who is the author of the novel 'Oliver Twist'?`,
+          choices: [`Charles Dickens`, `Jane Austen`, `George Eliot`],
+        }
+      ];
+
+      const quiz = {
+        score: 0,
+        round: rounds[0],
+        guess(event) {
+          if (event.target.innerText === this.round.answer) {
+            this.score += 1;
+          }
+        }
+      };
+
+      document.addEventListener('alpine:init', () => {
+        Alpine.store('quiz', quiz);
+      });
+  </script>
+  </body>
+</html>
