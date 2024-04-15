@@ -8,40 +8,88 @@
   </head>
   <body>
     <div x-data>
-      <p x-text="$store.quiz.score"></p>
-      <p x-text="$store.quiz.round.question"></p>
-      <template x-for="choice in $store.quiz.round.choices">
-        <button
-          x-text="choice"
-          x-on:click="event => $store.quiz.guess(event)"></button>
+      <template x-if="$store.quiz.state === STATE.NOT_STARTED">
+        <div>
+          <h1>Quiz</h1>
+          <button
+            @click="() => $store.quiz.start()">Begin!</button>
+        </div>
+      </template>
+
+      <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
+        <div>
+          <p x-text="$store.quiz.score"></p>
+          <p x-text="$store.quiz.round.question"></p>
+          <template x-for="choice in $store.quiz.round.choices">
+            <button
+              x-text="choice"
+              @click="event => $store.quiz.guess(event)"></button>
+          </template>
+        </div>
+      </template>
+
+      <template x-if="$store.quiz.state === STATE.COMPLETED">
+        <div>
+          <h2>Completed</h2>
+          Total points: <p x-text="$store.quiz.score"></p>
+        </div>
       </template>
     </div>
     <script>
-      const rounds = [
+      const STATE = {
+        NOT_STARTED: 0,
+        IN_PROGRESS: 1,
+        COMPLETED: 2,
+      };
+
+      const ROUNDS = [
         {
           question: `What is the chemical element for the symbol 'O'?`,
           answer: `Oxygen`,
           choices: [`Oxygen`, `Fluoride`, `Nitrogen`]
         },
         {
-          roundNumber: 2,
           question: `Who is the author of the novel 'Oliver Twist'?`,
+          answer: `Charles Dickens`,
           choices: [`Charles Dickens`, `Jane Austen`, `George Eliot`],
+        },
+        {
+          question: `What is the capital of Australia?`,
+          answer: `Canberra`,
+          choices: [`Canberra`, `Melbourne`, `Sydney`],
         }
       ];
 
-      const quiz = {
-        score: 0,
-        round: rounds[0],
-        guess(event) {
-          if (event.target.innerText === this.round.answer) {
-            this.score += 1;
-          }
-        }
-      };
+      let CURRENT_ROUND = 0;
 
       document.addEventListener('alpine:init', () => {
-        Alpine.store('quiz', quiz);
+        Alpine.store('quiz', {
+          state: STATE.NOT_STARTED,
+          score: 0,
+          round: ROUNDS[CURRENT_ROUND],
+          start () {
+            this.state = STATE.IN_PROGRESS;
+          },
+          guess (event) {
+            if (this.completed) {
+              return;
+            }
+
+            if (event.target.innerText === this.round.answer) {
+              this.score += 1;
+            }
+
+            
+            const nextRound = ROUNDS[CURRENT_ROUND + 1];
+            if (nextRound) {
+              this.round = nextRound;
+
+              CURRENT_ROUND += 1;
+            } else {
+              this.state = STATE.COMPLETED;
+            }
+          }
+        });
       });
   </script>
   </body>
