@@ -1,36 +1,3 @@
-const html = `<div x-cloak x-data>
-  <template x-if="$store.quiz.state === STATE.NOT_STARTED">
-    <div>
-      <h1>Quiz</h1>
-      <button
-        @click="() => $store.quiz.start()">Begin!</button>
-    </div>
-  </template>
-
-  <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-    <div>
-      <h2>A Round</h2>
-      <p x-text="$store.quiz.score"></p>
-      <p x-text="$store.quiz.round.question"></p>
-      <template x-for="choice in $store.quiz.round.choices">
-        <button
-          class="choice"
-          x-text="choice"
-          @click="event => $store.quiz.guess(event); $nextTick(fadeInChoices)"></button>
-      </template>
-    </div>
-  </template>
-
-  <template x-if="$store.quiz.state === STATE.COMPLETED">
-    <div>
-      <h2>Completed</h2>
-      Total points: <p x-text="$store.quiz.score"></p>
-    </div>
-  </template>
-</div>`;
-
-document.getElementById('root').innerHTML = html;
-
 const fadeInChoices = () => Array.from(
   document.querySelectorAll('.choice'))
     .map(choice => {
