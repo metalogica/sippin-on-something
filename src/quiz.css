@@ -1,0 +1,17 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100
+  }
+}
+
+.choice {
+  animation: fadeIn 500ms forwards;
+}
+
+.red-font {
+  color: red;
+}
