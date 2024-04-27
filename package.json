@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run ",
-    "dev": "ruby -run -e httpd . -p 8000 src/index.html"
+    "dev": "ruby -run -e httpd . -p 8000 index.html"
   },
   "author": "",
   "license": "ISC"
