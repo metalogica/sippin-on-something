@@ -52,12 +52,13 @@ const ROUNDS = [
     answer: `Bottle size`,
     choices: [`Weather`, `Soil`, `Aging style and time`, `Bottle size`],
   },
-    {
-    question: `Which wine-making method gives wine a crisp and effervescent profile?`,
-    answer: `Both Steel barrel aging AND Egg barrel aging`,
-    choices: [`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`],
-  },
-    {
+  // surplus round
+  // {
+  //   question: `Which wine-making method gives wine a crisp and effervescent profile?`,
+  //   answer: `Both Steel barrel aging AND Egg barrel aging`,
+  //   choices: [`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`],
+  // },
+  {
     question: `Which country is not a top-five producer of wine?`,
     answer: `Chile`,
     choices: [`Italy`, `Spain`, `Argentina`, `Chile`],
@@ -95,12 +96,18 @@ document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
     state: STATE.NOT_STARTED,
     score: 0,
+    competencyLevel: '',
     round: ROUNDS[CURRENT_ROUND],
+    currentRound: CURRENT_ROUND + 1,
+    competencyText: '',
     start () {
       this.state = STATE.IN_PROGRESS;
     },
     guess (event) {
+
       if (this.completed) {
+        this.competencyLevel = COMPETENCY_LEVELS[this.score];
+
         return;
       }
       
@@ -108,13 +115,14 @@ document.addEventListener('alpine:init', () => {
         this.score += 1;
       }
       
-      
       const nextRound = ROUNDS[CURRENT_ROUND + 1];
       if (nextRound) {
         this.round = nextRound;
+        this.currentRound += 1;
 
         CURRENT_ROUND += 1;
       } else {
+        this.competencyText = COMPETENCY_LEVELS[this.score];
         this.state = STATE.COMPLETED;
       }
     }

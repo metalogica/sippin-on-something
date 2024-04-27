@@ -23,6 +23,7 @@
       <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
         <div>
           <h2>A Round</h2>
+          <span x-text="$store.quiz.currentRound"></span>
           <p class="red-font" x-text="$store.quiz.score"></p>
           <p x-text="$store.quiz.round.question"></p>
           <template x-for="choice in $store.quiz.round.choices">
@@ -36,8 +37,9 @@
 
       <template x-if="$store.quiz.state === STATE.COMPLETED">
         <div>
-          <h2>Completed</h2>
-          Total points: <p x-text="$store.quiz.score"></p>
+          <h2>Competency Level</h2>
+          <span x-text="$store.quiz.score"></span>
+          <span x-text="$store.quiz.competencyText"></span>
         </div>
       </template>
     </div>
