@@ -20,25 +20,60 @@ const STATE = {
 
 const ROUNDS = [
   {
-    question: `What is the chemical element for the symbol 'O'?`,
-    answer: `Oxygen`,
-    choices: [`Oxygen`, `Fluoride`, `Nitrogen`]
+    question: `How many pounds of grapes are needed to make a bottle of wine?`,
+    answer: `2.5 pounds`,
+    choices: [`10 pounds`, `2.5 pounds`, `61 pounds`, `0.7 pounds`]
   },
   {
-    question: `Who is the author of the novel 'Oliver Twist'?`,
-    answer: `Charles Dickens`,
-    choices: [`Charles Dickens`, `Jane Austen`, `George Eliot`],
+    question: `The process by which grape sugar becomes alcohol is...`,
+    answer: `Fermentation`,
+    choices: [`Carbonation`, `Fermentation`, `Yeastification`, `Ripening`],
   },
   {
-    question: `What is the capital of Australia?`,
-    answer: `Canberra`,
-    choices: [`Canberra`, `Melbourne`, `Sydney`],
+    question: `What compound in red grapes makes you tired?`,
+    answer: `Melatonin`,
+    choices: [`Alcohol level`, `Melatonin`, `Grape color`, `Sugar level`],
   },
   {
-    question: `Who is the president of the USA?`,
-    answer: `Joe Biden`,
-    choices: [`Joe Biden`, `Donald Trump`, `JFK`],
-  }
+    question: `Which of the following external factors does not influence a grape variety’s flavor profile?`,
+    answer: `Bottle size`,
+    choices: [`Weather`, `Soil`, `Aging style and time`, `Bottle size`],
+  },
+    {
+    question: `Which wine-making method gives wine a crisp and effervescent profile?`,
+    answer: `Both Steel barrel aging AND Egg barrel aging`,
+    choices: [`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`],
+  },
+    {
+    question: `Which country is not a top-five producer of wine?`,
+    answer: `Chile`,
+    choices: [`Italy`, `Spain`, `Argentina`, `Chile`],
+  },
+  {
+    question: `Which of the following is not one of the -S words of tasting?`,
+    answer: `Stand`,
+    choices: [`Sip`, `Stand`, `Smell`, `Swirl`],
+  },
+  {
+    question: `Which of these is the most diverse grape?`,
+    answer: `Stand`,
+    choices: [`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`],
+  },
+  {
+    question: `Which of these is the most diverse grape?`,
+    answer: `Chardonnay`,
+    choices: [`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`],
+  },
+  {
+    question: `Which wine is associated with flavours of green bell pepper, grass, and gooseberry?`,
+    answer: `Sauvignon Blanc`,
+    choices: [`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`], 
+  },
+  {
+    question: `Where did winemaking begin?`,
+    answer: `Georgia`,
+    choices: [`France`, `Argentina`, `Italy`, `Georgia`], 
+  }    
 ];
 
 let CURRENT_ROUND = 0;
