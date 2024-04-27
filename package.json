@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "ruby -run -e httpd src -p 8001",
     "clean": "rm -rf dist && mkdir -p dist/assets",
     "minify": "npm run minify:assets && npm run minify:js && npm run minify:css -o dist/quiz.css src/quiz.css",
     "minify:assets": "squashify --in ./src/assets --out dist/assets",
