@@ -94,17 +94,23 @@ let CURRENT_ROUND = 0;
 
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
-    state: STATE.NOT_STARTED,
-    score: 0,
     competencyLevel: '',
-    round: ROUNDS[CURRENT_ROUND],
-    currentRound: CURRENT_ROUND + 1,
     competencyText: '',
+    guess: '',
+    currentRound: CURRENT_ROUND + 1,
+    round: ROUNDS[CURRENT_ROUND],
+    score: 0,
+    state: STATE.NOT_STARTED,
+
     start () {
       this.state = STATE.IN_PROGRESS;
     },
-    guess (event) {
 
+    setGuess (event) {
+      console.log(this.guess);
+    },
+
+    guess (event) {
       if (this.completed) {
         this.competencyLevel = COMPETENCY_LEVELS[this.score];
 
