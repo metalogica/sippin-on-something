@@ -18,6 +18,19 @@ const STATE = {
   COMPLETED: 2,
 };
 
+const COMPETENCY_LEVELS = {
+  1: 'Do you even wine?',
+  2: 'You need more wine in your life',
+  3: 'You need more wine in your life',
+  4: 'You’re a 4 … but you’re funny 😊',
+  5: 'You’ve been to a tasting or two but could use some more sippin',
+  6: 'Sips of success – you’re doing great!',
+  7: 'Sips of success – you’re doing great!',
+  8: 'Sip n’ slay – you’re a wine snob!',
+  9: 'Sip n’ slay – you’re a wine snob!',
+  10: 'Master Somm status achieved!!!',
+};
+
 const ROUNDS = [
   {
     question: `How many pounds of grapes are needed to make a bottle of wine?`,
