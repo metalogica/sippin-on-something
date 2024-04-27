@@ -4,9 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run ",
-    "dev": "ruby -run -e httpd . -p 8000 index.html"
+    "clean": "rm -rf dist && mkdir -p dist/assets",
+    "minify": "npm run minify:assets && npm run minify:js && npm run minify:css -o dist/quiz.css src/quiz.css",
+    "minify:assets": "squashify --in ./src/assets --out dist/assets",
+    "minify:js": "terser src/quiz.js --compress --mangle -o dist/quiz.js",
+    "minify:css": "cleancss -o dist/quiz.css src/quiz.css",
+    "build": "cp src/quiz.html dist/quiz.html && cp src/alpine.js dist/alpine.js && cp src/quiz.css dist/quiz.css && npm run minify",
+    "watch": "npm run build && concurrently \"npm:watch:*\"",
+    "watch:server": "ruby -run -e httpd dist -p 8000",
+    "watch:port-forward": "/opt/homebrew/bin/ngrok http 8000 --log=stdout --log-level=info"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Richard Jarram",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "concurrently": "^8.2.2",
+    "squashify": "^1.1.2",
+    "terser": "^5.30.4"
+  }
 }

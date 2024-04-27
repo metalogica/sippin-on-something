@@ -15,3 +15,7 @@
 .red-font {
   color: red;
 }
+
+@media only screen and (min-device-width : 828px) {
+
+}

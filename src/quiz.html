@@ -6,12 +6,12 @@
 
     <script defer src="quiz.js"></script>
     <script defer
-      src="lib/alpine.js"></script>
+      src="alpine.js"></script>
     <link rel="stylesheet" href="quiz.css">
 
   </head>
   <body>
-    <div x-cloak x-data>
+    <div id="quiz" x-cloak x-data>
       <template x-if="$store.quiz.state === STATE.NOT_STARTED">
         <div>
           <h1>Quiz</h1>
