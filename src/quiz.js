@@ -19,6 +19,7 @@ const STATE = {
 };
 
 const COMPETENCY_LEVELS = {
+  0: 'Do you even wine?',
   1: 'Do you even wine?',
   2: 'You need more wine in your life',
   3: 'You need more wine in your life',
@@ -106,18 +107,25 @@ document.addEventListener('alpine:init', () => {
       this.state = STATE.IN_PROGRESS;
     },
 
-    setGuess (event) {
-      console.log(this.guess);
+    select(event) {
+      this._clearSelected();
+      
+      event.target.classList.add('selected');
     },
+    
+    guess () {
+      const selectedChoice = document.querySelector('.selected');
+      if (!selectedChoice) {
+        return;
+      }
 
-    guess (event) {
       if (this.completed) {
         this.competencyLevel = COMPETENCY_LEVELS[this.score];
-
+        
         return;
       }
       
-      if (event.target.innerText === this.round.answer) {
+      if (selectedChoice.innerText === this.round.answer) {
         this.score += 1;
       }
       
@@ -125,12 +133,19 @@ document.addEventListener('alpine:init', () => {
       if (nextRound) {
         this.round = nextRound;
         this.currentRound += 1;
-
+        
         CURRENT_ROUND += 1;
+        
+        this._clearSelected();
+        fadeInChoices();
       } else {
         this.competencyText = COMPETENCY_LEVELS[this.score];
         this.state = STATE.COMPLETED;
       }
+    },
+    
+    _clearSelected() {
+      Array.from(document.querySelectorAll('.choice')).forEach(choice => choice.classList.remove('selected'));
     }
   });
 });

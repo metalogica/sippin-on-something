@@ -12,6 +12,10 @@
   animation: fadeIn 500ms forwards;
 }
 
+.selected {
+  border: 5px solid red;
+}
+
 .red-font {
   color: red;
 }

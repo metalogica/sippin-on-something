@@ -26,14 +26,13 @@
           <span x-text="$store.quiz.currentRound"></span>
           <p class="red-font" x-text="$store.quiz.score"></p>
           <p x-text="$store.quiz.round.question"></p>
-          <p @click="event => $store.quiz.setGuess(event)"
-            class="choice">test</p>
           <template x-for="choice in $store.quiz.round.choices">
             <button
               class="choice"
               x-text="choice"
-              @click="event => $store.quiz.guess(event); $nextTick(fadeInChoices)"></button>
+              @click="event => $store.quiz.select(event);"></button>
           </template>
+          <button @click="$store.quiz.guess()">Next</button>
         </div>
       </template>
 
