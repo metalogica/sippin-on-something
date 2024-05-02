@@ -27,18 +27,23 @@
 
           <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
             <div class="quiz-frame-choices">
-              <h2>A Round</h2>
-              <span x-text="$store.quiz.currentRound"></span>
-              <p class="red-font" x-text="$store.quiz.score"></p>
-              <p x-text="$store.quiz.round.question"></p>
-              <template x-for="choice in $store.quiz.round.choices">
-                <div
-                  class="choice quiz-card"
-                  x-text="choice"
-                  @click="event => $store.quiz.select(event);"></div>
-              </template>
-              <button class="button-next"
-                @click="$store.quiz.guess()">Next</button>
+              <div>
+                <span class="text-round-number"
+                  x-text="$store.quiz.currentRound"></span><span
+                  class="text-round-number">/10</span>
+              </div>
+              <h1 class="quiz-header-choices"
+                x-text="$store.quiz.round.question"></h1>
+              <div class="quiz-frame-choice-grid">
+                <template x-for="choice in $store.quiz.round.choices">
+                  <div
+                    class="fade-in quiz-card"
+                    x-text="choice"
+                    @click="event => $store.quiz.select(event);"></div>
+                </template>
+              </div>
+              <di class="button-next"
+                @click="$store.quiz.guess()">Next</di>
             </div>
           </template>
 

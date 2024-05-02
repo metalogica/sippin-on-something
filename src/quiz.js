@@ -1,5 +1,5 @@
 const fadeInChoices = () => Array.from(
-  document.querySelectorAll('.choice'))
+  document.querySelectorAll('.fade-in'))
     .map(choice => {
       choice.animate([
         { opacity: 100 },
@@ -147,7 +147,7 @@ document.addEventListener('alpine:init', () => {
     },
     
     _clearSelected() {
-      Array.from(document.querySelectorAll('.choice')).forEach(choice => choice.classList.remove('selected'));
+      Array.from(document.querySelectorAll('.quiz-card')).forEach(choice => choice.classList.remove('selected'));
     }
   });
 });
