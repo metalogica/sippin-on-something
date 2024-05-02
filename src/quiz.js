@@ -105,6 +105,8 @@ document.addEventListener('alpine:init', () => {
 
     start () {
       this.state = STATE.IN_PROGRESS;
+
+      document.querySelector('.quiz-container').classList.remove('bg-main');
     },
 
     select(event) {

@@ -15,7 +15,7 @@
       <div class="quiz-background">
         <img class="quiz-logo" src="assets/quiz-logo.png" alt>
 
-        <div class="quiz-container">
+        <div class="quiz-container bg-main">
           <template x-if="$store.quiz.state === STATE.NOT_STARTED">
             <div class="quiz-frame-start">
               <h1 class="quiz-header-start">Welcome To Somm School</h1>
@@ -26,18 +26,19 @@
           </template>
 
           <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-            <div>
+            <div class="quiz-frame-choices">
               <h2>A Round</h2>
               <span x-text="$store.quiz.currentRound"></span>
               <p class="red-font" x-text="$store.quiz.score"></p>
               <p x-text="$store.quiz.round.question"></p>
               <template x-for="choice in $store.quiz.round.choices">
-                <button
-                  class="choice"
+                <div
+                  class="choice quiz-card"
                   x-text="choice"
-                  @click="event => $store.quiz.select(event);"></button>
+                  @click="event => $store.quiz.select(event);"></div>
               </template>
-              <button @click="$store.quiz.guess()">Next</button>
+              <button class="button-next"
+                @click="$store.quiz.guess()">Next</button>
             </div>
           </template>
 
@@ -48,8 +49,8 @@
               <span x-text="$store.quiz.competencyText"></span>
             </div>
           </template>
+
         </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
