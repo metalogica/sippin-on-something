@@ -11,38 +11,45 @@
 
   </head>
   <body>
-    <div id="quiz" x-cloak x-data>
-      <template x-if="$store.quiz.state === STATE.NOT_STARTED">
-        <div>
-          <h1>Welcome To Somm School</h1>
-          <button
-            @click="() => $store.quiz.start()">Take the quiz!</button>
-        </div>
-      </template>
+    <div class="quiz-wrapper" x-cloak x-data>
+      <div class="quiz-background">
+        <img class="quiz-logo" src="assets/quiz-logo.png" alt>
 
-      <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-        <div>
-          <h2>A Round</h2>
-          <span x-text="$store.quiz.currentRound"></span>
-          <p class="red-font" x-text="$store.quiz.score"></p>
-          <p x-text="$store.quiz.round.question"></p>
-          <template x-for="choice in $store.quiz.round.choices">
-            <button
-              class="choice"
-              x-text="choice"
-              @click="event => $store.quiz.select(event);"></button>
+        <div class="quiz-container">
+          <template x-if="$store.quiz.state === STATE.NOT_STARTED">
+            <div class="quiz-frame-start">
+              <h1 class="quiz-header-start">Welcome To Somm School</h1>
+              <button
+                class="button-start"
+                @click="() => $store.quiz.start()">Take the quiz</button>
+            </div>
           </template>
-          <button @click="$store.quiz.guess()">Next</button>
-        </div>
-      </template>
 
-      <template x-if="$store.quiz.state === STATE.COMPLETED">
-        <div>
-          <h2>Competency Level</h2>
-          <span x-text="$store.quiz.score"></span>
-          <span x-text="$store.quiz.competencyText"></span>
+          <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
+            <div>
+              <h2>A Round</h2>
+              <span x-text="$store.quiz.currentRound"></span>
+              <p class="red-font" x-text="$store.quiz.score"></p>
+              <p x-text="$store.quiz.round.question"></p>
+              <template x-for="choice in $store.quiz.round.choices">
+                <button
+                  class="choice"
+                  x-text="choice"
+                  @click="event => $store.quiz.select(event);"></button>
+              </template>
+              <button @click="$store.quiz.guess()">Next</button>
+            </div>
+          </template>
+
+          <template x-if="$store.quiz.state === STATE.COMPLETED">
+            <div>
+              <h2>Competency Level</h2>
+              <span x-text="$store.quiz.score"></span>
+              <span x-text="$store.quiz.competencyText"></span>
+            </div>
+          </template>
         </div>
-      </template>
+      </div>
     </div>
   </body>
 </html>
