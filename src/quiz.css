@@ -78,6 +78,7 @@ body {
   border-radius: 1.5rem;
 
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
 }
@@ -128,11 +129,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .quiz-frame-choice-grid {
   min-height: 50%;
-  min-width: 80%;
+  min-width: 50%;
+  max-width: 60%;
 
   display: grid;
   grid-template-rows: 2;
@@ -148,15 +151,18 @@ body {
   max-width: 65%;
 
   font-family: Modena Sans, Arial, Helvetica, sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
 
   text-align: center; 
   color: #F9F6ED;
 }
 
 .quiz-card {
-  width: 100px;
-  height: 100px;  
+  min-width: 5rem;
+  max-width: 8rem;
+  height: 12rem;  
+
+  margin: auto;
 
   background-image: url('./assets/quiz-background.jpg');
   background-size: cover;
@@ -173,6 +179,7 @@ body {
   color: #F9F6ED;
   
   text-transform: uppercase;
+  text-align: center;
   
   border: none; 
 }

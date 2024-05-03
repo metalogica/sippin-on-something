@@ -139,6 +139,7 @@ document.addEventListener('alpine:init', () => {
         CURRENT_ROUND += 1;
         
         this._clearSelected();
+        
         fadeInChoices();
       } else {
         this.competencyText = COMPETENCY_LEVELS[this.score];
