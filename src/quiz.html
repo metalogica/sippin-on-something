@@ -37,16 +37,17 @@
               <div class="quiz-frame-choice-grid">
                 <template x-for="(choice, index) in $store.quiz.round.choices">
                   <div
+                    x-bind:id="index"
                     class="fade-in quiz-card"
-                    @click="event => $store.quiz.select(event);">
+                    @click="event => $store.quiz.guess(event);">
                     <span class="text-quiz-card-choice-label"
                       x-text="$store.quiz.choiceLabels[index]"></span>
                     <span class="text-quiz-card-choice" x-text="choice"></span>
                   </div>
                 </template>
               </div>
-              <div class="button-next"
-                @click="$store.quiz.guess()">Next</div>
+              <div class="button-next opacity-0"
+                @click="$store.quiz.nextRound()">Next</div>
             </div>
           </template>
 

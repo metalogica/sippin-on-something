@@ -18,6 +18,18 @@ body {
   animation: fadeIn 500ms forwards;
 }
 
+.opacity-0 {
+  opacity: 0
+}
+
+.green-border {
+  border: 1px solid #47E46E;
+}
+
+.red-border {
+  border: 1px solid #FF6161;
+}
+
 .quiz-wrapper {
   width: 100vw;
   height: 100vh;
@@ -168,8 +180,9 @@ body {
   border-radius: 0.475rem;
 }
 
-.quiz-card.selected {
-  border: 1px solid #47E46E;
+.quiz-card span {
+  // disable browser click events on children `span` elements
+  pointer-events: none;
 }
 
 .button-next {

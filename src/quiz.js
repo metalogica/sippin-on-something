@@ -99,6 +99,7 @@ document.addEventListener('alpine:init', () => {
     competencyLevel: '',
     competencyText: '',
     guess: '',
+    hasGuessed: false,
     currentRound: CURRENT_ROUND + 1,
     round: ROUNDS[CURRENT_ROUND],
     score: 0,
@@ -109,16 +110,9 @@ document.addEventListener('alpine:init', () => {
 
       document.querySelector('.quiz-container').classList.remove('bg-main');
     },
-
-    select(event) {
-      this._clearSelected();
-      
-      event.target.classList.add('selected');
-    },
     
-    guess () {
-      const selectedChoice = document.querySelector('.selected');
-      if (!selectedChoice) {
+    guess (event) {
+      if (this.hasGuessed) {
         return;
       }
 
@@ -128,28 +122,53 @@ document.addEventListener('alpine:init', () => {
         return;
       }
       
-      if (selectedChoice.innerText === this.round.answer) {
+      const choiceElementDOM = event.target;
+
+      const selectedChoice = this.round.choices[choiceElementDOM.id];
+      if (selectedChoice === this.round.answer) {
+        choiceElementDOM.classList.add('green-border');
         this.score += 1;
+      } else {
+        choiceElementDOM.classList.add('red-border');
       }
-      
+
+      this.hasGuessed = true;
+      this._showNextButton();
+      this._showCorrectAnswer();
+    },
+    
+    nextRound() {
       const nextRound = ROUNDS[CURRENT_ROUND + 1];
       if (nextRound) {
+        this.hasGuessed = false;
         this.round = nextRound;
         this.currentRound += 1;
         
         CURRENT_ROUND += 1;
         
-        this._clearSelected();
-
         fadeInChoices();
+        this._hideNextButton();
+        this._clearSelected();
       } else {
-        this.competencyText = COMPETENCY_LEVELS[this.score];
         this.state = STATE.COMPLETED;
+        this.competencyText = COMPETENCY_LEVELS[this.score];
       }
     },
     
     _clearSelected() {
-      Array.from(document.querySelectorAll('.quiz-card')).forEach(choice => choice.classList.remove('selected'));
-    }
+      Array.from(document.querySelectorAll('.quiz-card')).forEach(choice => choice.classList.remove('red-border', 'green-border'));
+    },
+
+    _hideNextButton() {
+      document.querySelector('.button-next').classList.add('opacity-0');
+    },
+
+    _showCorrectAnswer() {
+      document.querySelector('.button-next').classList.remove('opacity-0');
+    },
+
+    _showNextButton() {
+      document.querySelector('.button-next').classList.remove('opacity-0');
+    },
   });
 });
