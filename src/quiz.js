@@ -95,6 +95,7 @@ let CURRENT_ROUND = 0;
 
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
+    choiceLabels: ['A', 'B', 'C', 'D'],
     competencyLevel: '',
     competencyText: '',
     guess: '',
@@ -139,7 +140,7 @@ document.addEventListener('alpine:init', () => {
         CURRENT_ROUND += 1;
         
         this._clearSelected();
-        
+
         fadeInChoices();
       } else {
         this.competencyText = COMPETENCY_LEVELS[this.score];

@@ -35,11 +35,13 @@
               <h1 class="quiz-header-choices"
                 x-text="$store.quiz.round.question"></h1>
               <div class="quiz-frame-choice-grid">
-                <template x-for="choice in $store.quiz.round.choices">
+                <template x-for="(choice, index) in $store.quiz.round.choices">
                   <div
                     class="fade-in quiz-card"
-                    x-text="choice"
-                    @click="event => $store.quiz.select(event);"></div>
+                    @click="event => $store.quiz.select(event);">
+                    <span x-text="$store.quiz.choiceLabels[index]"></span>
+                    <span x-text="choice"></span>
+                  </div>
                 </template>
               </div>
               <div class="button-next"
