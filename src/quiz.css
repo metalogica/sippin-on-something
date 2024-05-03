@@ -12,10 +12,6 @@
   animation: fadeIn 500ms forwards;
 }
 
-.selected {
-  border: 5px solid red;
-}
-
 body {
   border: 0 !important;
   padding: 0 !important;
@@ -166,6 +162,18 @@ body {
 
   background-image: url('./assets/quiz-background.jpg');
   background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.15rem;
+
+  border-radius: 0.475rem;
+}
+
+.quiz-card.selected {
+  border: 1px solid #47E46E;
 }
 
 .button-next {
@@ -188,6 +196,14 @@ body {
 
 .text-round-number {
   font-size: 1.5rem;
+  color: #F9F6ED;
+}
+
+.text-quiz-card-choice-label {
+  color: #F9F6ED;
+}
+
+.text-quiz-card-choice {
   color: #F9F6ED;
 }
 

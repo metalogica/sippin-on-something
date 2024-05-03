@@ -39,8 +39,9 @@
                   <div
                     class="fade-in quiz-card"
                     @click="event => $store.quiz.select(event);">
-                    <span x-text="$store.quiz.choiceLabels[index]"></span>
-                    <span x-text="choice"></span>
+                    <span class="text-quiz-card-choice-label"
+                      x-text="$store.quiz.choiceLabels[index]"></span>
+                    <span class="text-quiz-card-choice" x-text="choice"></span>
                   </div>
                 </template>
               </div>
