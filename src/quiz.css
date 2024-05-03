@@ -180,11 +180,6 @@ body {
   border-radius: 0.475rem;
 }
 
-.quiz-card span {
-  // disable browser click events on children `span` elements
-  pointer-events: none;
-}
-
 .button-next {
   font-size: 1.2rem;
   font-family:  Modena Sans, Arial, Helvetica, sans-serif;
@@ -210,10 +205,12 @@ body {
 
 .text-quiz-card-choice-label {
   color: #F9F6ED;
+  pointer-events: none;
 }
 
 .text-quiz-card-choice {
   color: #F9F6ED;
+  pointer-events: none;
 }
 
 @media (min-width : 700px) {
