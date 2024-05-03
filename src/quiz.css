@@ -1,3 +1,9 @@
+body {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -10,18 +16,6 @@
 
 .fade-in {
   animation: fadeIn 500ms forwards;
-}
-
-body {
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: inherit !important;
 }
 
 .quiz-wrapper {
@@ -155,6 +149,8 @@ body {
 }
 
 .quiz-card {
+  box-sizing: border-box;
+
   min-width: 6rem;
   min-height: 9rem;
 
