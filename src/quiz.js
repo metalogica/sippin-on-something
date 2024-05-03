@@ -141,10 +141,22 @@ document.addEventListener('alpine:init', () => {
 
       const selectedChoice = this.round.choices[choiceElementDOM.id];
       if (selectedChoice === this.round.answer) {
-        choiceElementDOM.classList.add('green-border');
         this.score += 1;
+
+        choiceElementDOM.classList.add('green-border');
+        const labelDom = Array.from(choiceElementDOM.children)
+          .find(element => element.classList.contains('text-quiz-card-choice-label'))
+
+        labelDom.innerText = 'Correct';
+        labelDom.classList.add('text-green');
+        console.log(labelDom)
       } else {
         choiceElementDOM.classList.add('red-border');
+
+        const labelDom = Array.from(choiceElementDOM.children)
+          .find(element => element.classList.contains('text-quiz-card-choice-label'))
+
+        labelDom.classList.add('text-red');
       }
 
       this.hasGuessed = true;
