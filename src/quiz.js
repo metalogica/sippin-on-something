@@ -1,17 +1,3 @@
-const fadeInChoices = () => Array.from(
-  document.querySelectorAll('.fade-in'))
-    .map(choice => {
-      choice.animate([
-        { opacity: 100 },
-        { opacity: 0 }, 
-        { opacity: 100 },
-      ], {
-        duration: 1000,
-        iterations: 1,
-      }
-  )
-});
-
 const randomize = (originalArray) => {
   const shuffledArray = [];
   
@@ -141,6 +127,7 @@ document.addEventListener('alpine:init', () => {
       }
 
       this.hasGuessed = true;
+      
       this._showCorrectAnswer();
     },
     
@@ -153,8 +140,6 @@ document.addEventListener('alpine:init', () => {
         
         CURRENT_ROUND += 1;
         
-        fadeInChoices();
-        this._hideNextButton();
         this._clearSelected();
       } else {
         this.state = STATE.COMPLETED;
@@ -163,16 +148,28 @@ document.addEventListener('alpine:init', () => {
     },
     
     _clearSelected() {
+      Array.from(
+        document.querySelectorAll('.fade-in'))
+          .map(choice => {
+            choice.animate([
+              { opacity: 100 },
+              { opacity: 0 }, 
+              { opacity: 100 },
+            ], {
+              duration: 1000,
+              iterations: 1,
+            }
+        )
+      });
+
       document.getElementById('chosen').id = '';
+
+      document.querySelector('.button-next').classList.add('opacity-0');
 
       Array.from(document.querySelectorAll('.quiz-card')).forEach(choice => choice.classList.remove('red-border', 'green-border'));
       
       Array.from(document.querySelectorAll('.quiz-card-front')).forEach(card => card.classList.remove('quiz-card-front-flip'));
       Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => card.classList.remove('quiz-card-back-flip'));
-    },
-
-    _hideNextButton() {
-      document.querySelector('.button-next').classList.add('opacity-0');
     },
 
     _showCorrectAnswer() {
@@ -183,6 +180,7 @@ document.addEventListener('alpine:init', () => {
           card.classList.add('quiz-card-front-flip');
         }
       });
+
       Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => {
         
         if (card.dataset.choice === this.round.answer) {
