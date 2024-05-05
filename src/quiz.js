@@ -68,12 +68,11 @@ const ROUNDS = [
     answer: `Bottle size`,
     choices: randomize([`Weather`, `Soil`, `Aging style and time`, `Bottle size`]),
   },
-  // surplus round
-  // {
-  //   question: `Which wine-making method gives wine a crisp and effervescent profile?`,
-  //   answer: `Both Steel barrel aging AND Egg barrel aging`,
-  //   choices: randomize([`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`]),
-  // },
+  {
+    question: `Which wine-making method gives wine a crisp and effervescent profile?`,
+    answer: `Both Steel barrel aging AND Egg barrel aging`,
+    choices: randomize([`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`]),
+  },
   {
     question: `Which country is not a top-five producer of wine?`,
     answer: `Chile`,
@@ -86,12 +85,7 @@ const ROUNDS = [
   },
   {
     question: `Which of these is the most diverse grape?`,
-    answer: `Stand`,
-    choices: randomize([`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`]),
-  },
-  {
-    question: `Which of these is the most diverse grape?`,
-    answer: `Chardonnay`,
+    answer: `Sauvignon Blanc`,
     choices: randomize([`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`]),
   },
   {
