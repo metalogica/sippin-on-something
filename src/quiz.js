@@ -161,7 +161,7 @@ document.addEventListener('alpine:init', () => {
 
       this.hasGuessed = true;
       this._showNextButton();
-      this._showCorrectAnswer();
+      // this._showCorrectAnswer();
     },
     
     nextRound() {

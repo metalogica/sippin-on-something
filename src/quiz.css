@@ -223,6 +223,7 @@ body {
 .quiz-card:hover .quiz-card-front {
   transform: rotateY(-180deg);
 }
+
 .quiz-card:hover .quiz-card-back {
   transform: rotateY(0deg);
 }
