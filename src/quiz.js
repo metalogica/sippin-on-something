@@ -144,19 +144,19 @@ document.addEventListener('alpine:init', () => {
         this.score += 1;
 
         choiceElementDOM.classList.add('green-border');
-        const labelDom = Array.from(choiceElementDOM.children)
-          .find(element => element.classList.contains('text-quiz-card-choice-label'))
+        // const labelDom = Array.from(choiceElementDOM.children)
+        //   .find(element => element.classList.contains('text-quiz-card-choice-label'))
 
-        labelDom.innerText = 'Correct';
-        labelDom.classList.add('text-green');
-        console.log(labelDom)
+        // labelDom.innerText = 'Correct';
+        // labelDom.classList.add('text-green');
+        // console.log(labelDom)
       } else {
         choiceElementDOM.classList.add('red-border');
 
-        const labelDom = Array.from(choiceElementDOM.children)
-          .find(element => element.classList.contains('text-quiz-card-choice-label'))
+        // const labelDom = Array.from(choiceElementDOM.children)
+        //   .find(element => element.classList.contains('text-quiz-card-choice-label'))
 
-        labelDom.classList.add('text-red');
+        // labelDom.classList.add('text-red');
       }
 
       this.hasGuessed = true;
