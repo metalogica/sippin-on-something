@@ -124,8 +124,6 @@ document.addEventListener('alpine:init', () => {
       const selectedChoice = this.round.choices[choiceElementDOM.id];
       if (choiceElementDOM.dataset.choice === this.round.answer) {
         this.score += 1;
-
-        choiceElementDOM.parentElement.querySelector('.quiz-card-back').classList.add('green-border');
       }
 
       this.hasGuessed = true;

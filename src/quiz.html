@@ -46,8 +46,10 @@
                         x-text="choice"></span>
                     </div>
                     <div class="quiz-card-back"
+                      x-bind:class="choice === $store.quiz.round.answer ? 'text-green green-border' : 'text-red red-border'"
                       x-bind:data-choice="choice">
                       <span class="text-quiz-card-choice-label"
+                        x-bind:class="choice === $store.quiz.round.answer ? 'text-green' : 'text-red'"
                         x-text="choice === $store.quiz.round.answer ? 'Correct' : $store.quiz.choiceLabels[index]"></span>
                       <span class="text-quiz-card-choice"
                         x-text="choice"></span>
