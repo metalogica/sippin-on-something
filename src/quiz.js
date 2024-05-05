@@ -134,13 +134,13 @@ document.addEventListener('alpine:init', () => {
     nextRound() {
       const nextRound = ROUNDS[CURRENT_ROUND + 1];
       if (nextRound) {
+        this._clearSelected();
+
         this.hasGuessed = false;
         this.round = nextRound;
         this.currentRound += 1;
         
         CURRENT_ROUND += 1;
-        
-        this._clearSelected();
       } else {
         this.state = STATE.COMPLETED;
         this.competencyText = COMPETENCY_LEVELS[this.score];
@@ -182,7 +182,6 @@ document.addEventListener('alpine:init', () => {
       });
 
       Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => {
-        
         if (card.dataset.choice === this.round.answer) {
           const chosenCardBackDOM = document.getElementById('chosen').parentElement.querySelector('.quiz-card-back');
           
