@@ -3,6 +3,11 @@
   src: url('./assets/fonts/ivar-display-condensed-regular.otf') format('opentype')
 }
 
+@font-face {
+  font-family: 'Modena Sans';
+  src: url('./assets/fonts/modena-sans.otf') format('opentype')
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -20,7 +25,7 @@ body {
 }
 
 .quiz-wrapper div, .quiz-wrapper h1 {
-  font-family: 'Ivar Display';
+  font-family: 'Ivar Display', Arial, sans-serif;
 }
 
 .fade-in {
@@ -128,7 +133,7 @@ body {
 
 .button-start {
   font-size: 1.2rem;
-  font-family: Modena Sans, Arial, Helvetica, sans-serif;
+  font-family: 'Modena Sans', Arial, sans-serif;
 
   min-width: 40%;
   min-height: 5%;
