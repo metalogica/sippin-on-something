@@ -1,11 +1,15 @@
 @font-face {
   font-family: 'Ivar Display';
-  src: url('./assets/fonts/ivar-display-condensed-regular.otf') format('opentype')
+  src: url('./assets/fonts/ivar-display-condensed-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Modena Sans';
-  src: url('./assets/fonts/modena-sans.otf') format('opentype')
+  src: url('./assets/fonts/modena-sans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @keyframes fadeIn {
@@ -26,6 +30,7 @@ body {
 
 .quiz-wrapper div, .quiz-wrapper h1 {
   font-family: 'Ivar Display', Arial, sans-serif;
+  font-weight: 400;
 }
 
 .fade-in {
