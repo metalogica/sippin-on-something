@@ -170,6 +170,7 @@ body {
 
 .quiz-card {
   box-sizing: border-box;
+  position: relative;
 
   min-width: 6rem;
   min-height: 9rem;
@@ -186,6 +187,44 @@ body {
   gap: 0.15rem;
 
   border-radius: 0.475rem;
+
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.quiz-card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+  transition: all 1s ease-out;
+  transform: rotateY(0deg);
+  
+  border: 2px solid red;
+}
+
+.quiz-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  backface-visibility: hidden;
+  transition: all 1s ease-out;
+  transform: rotateY(180deg);
+  
+  border: 2px solid blue;
+}
+
+.quiz-card:hover .quiz-card-front {
+  transform: rotateY(-180deg);
+}
+.quiz-card:hover .quiz-card-back {
+  transform: rotateY(0deg);
 }
 
 .button-next {
