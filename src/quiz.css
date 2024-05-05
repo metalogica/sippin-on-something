@@ -1,7 +1,6 @@
-body {
-  border: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+@font-face {
+  font-family: 'Ivar Display';
+  src: url('./assets/fonts/ivar-display-condensed-regular.otf') format('opentype')
 }
 
 @keyframes fadeIn {
@@ -12,6 +11,16 @@ body {
   100% {
     opacity: 100
   }
+}
+
+body {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.quiz-wrapper div, .quiz-wrapper h1 {
+  font-family: 'Ivar Display';
 }
 
 .fade-in {
