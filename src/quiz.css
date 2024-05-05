@@ -139,6 +139,7 @@ body {
 .button-start {
   font-size: 1.2rem;
   font-family: 'Modena Sans', Arial, sans-serif;
+  font-weight: 400;
 
   min-width: 40%;
   min-height: 5%;
@@ -180,7 +181,6 @@ body {
 .quiz-header-choices {
   max-width: 65%;
 
-  font-family: Modena Sans, Arial, Helvetica, sans-serif;
   font-size: 1.25rem;
 
   text-align: center; 
@@ -264,7 +264,8 @@ body {
 
 .button-next {
   font-size: 1.2rem;
-  font-family:  Modena Sans, Arial, Helvetica, sans-serif;
+  font-family: 'Modena Sans', Arial, sans-serif;
+  font-weight: 400;
 
   min-width: 40%;
   min-height: 5%;
@@ -323,12 +324,10 @@ body {
 }
 
 .quiz-frame-result span {
-  font-family:  Modena Sans, Arial, Helvetica, sans-serif;
   color: #F9F6ED;
 }
 
 .quiz-header-result {
-  font-family:  Modena Sans, Arial, Helvetica, sans-serif;
   color: #F9F6ED;
 }
 
@@ -337,7 +336,6 @@ body {
 }
 
 .quiz-header-social-media {
-  font-family:  Modena Sans, Arial, Helvetica, sans-serif;
   color: #F9F6ED;
 }
 
