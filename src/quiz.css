@@ -177,9 +177,6 @@ body {
 
   margin: auto;
 
-  background-image: url('./assets/quiz-background.jpg');
-  background-size: cover;
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -199,6 +196,9 @@ body {
   width: 100%;
   height: 100%;
 
+  background-image: url('./assets/quiz-background.jpg');
+  background-size: cover;
+
   backface-visibility: hidden;
   transition: all 1s ease-out;
   transform: rotateY(0deg);
@@ -212,6 +212,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+
+  background-image: url('./assets/quiz-background.jpg');
+  background-size: cover;
   
   backface-visibility: hidden;
   transition: all 1s ease-out;
@@ -220,11 +223,11 @@ body {
   border: 2px solid blue;
 }
 
-.quiz-card:hover .quiz-card-front {
+.quiz-card-front-flip {
   transform: rotateY(-180deg);
 }
 
-.quiz-card:hover .quiz-card-back {
+.quiz-card-back-flip {
   transform: rotateY(0deg);
 }
 

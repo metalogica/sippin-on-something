@@ -40,13 +40,13 @@
                     x-bind:id="index"
                     class="fade-in quiz-card"
                     @click="event => $store.quiz.guess(event);">
-                    <div class="quiz-card-front">
+                    <div class="quiz-card-front" x-bind:data-choice="choice">
                       <span class="text-quiz-card-choice-label"
                         x-text="$store.quiz.choiceLabels[index]"></span>
                       <span class="text-quiz-card-choice"
                         x-text="choice"></span>
                     </div>
-                    <div class="quiz-card-back">
+                    <div class="quiz-card-back" x-bind:data-choice="choice">
                       <p>test</p>
                       <span class="text-quiz-card-choice-label">Test</span>
                       <span class="text-quiz-card-choice">Test</span>

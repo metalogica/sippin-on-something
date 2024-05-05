@@ -6,7 +6,7 @@ const fadeInChoices = () => Array.from(
         { opacity: 0 }, 
         { opacity: 100 },
       ], {
-        duration: 500,
+        duration: 1000,
         iterations: 1,
       }
   )
@@ -139,6 +139,8 @@ document.addEventListener('alpine:init', () => {
       
       const choiceElementDOM = event.target;
 
+      choiceElementDOM.id = 'chosen';
+
       const selectedChoice = this.round.choices[choiceElementDOM.id];
       if (selectedChoice === this.round.answer) {
         this.score += 1;
@@ -160,8 +162,8 @@ document.addEventListener('alpine:init', () => {
       }
 
       this.hasGuessed = true;
-      this._showNextButton();
-      // this._showCorrectAnswer();
+      this._showCorrectAnswer();
+      // this._showNextButton();
     },
     
     nextRound() {
@@ -183,7 +185,12 @@ document.addEventListener('alpine:init', () => {
     },
     
     _clearSelected() {
+      document.getElementById('chosen').id = '';
+
       Array.from(document.querySelectorAll('.quiz-card')).forEach(choice => choice.classList.remove('red-border', 'green-border'));
+      
+      Array.from(document.querySelectorAll('.quiz-card-front')).forEach(card => card.classList.remove('quiz-card-front-flip'));
+      Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => card.classList.remove('quiz-card-back-flip'));
     },
 
     _hideNextButton() {
@@ -192,10 +199,21 @@ document.addEventListener('alpine:init', () => {
 
     _showCorrectAnswer() {
       document.querySelector('.button-next').classList.remove('opacity-0');
-    },
-
-    _showNextButton() {
-      document.querySelector('.button-next').classList.remove('opacity-0');
+      
+      Array.from(document.querySelectorAll('.quiz-card-front')).forEach(card => {
+        if (card.dataset.choice === this.round.answer || card.id === 'chosen') {
+          card.classList.add('quiz-card-front-flip');
+        }
+      });
+      Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => {
+        
+        if (card.dataset.choice === this.round.answer) {
+          const chosenCardBackDOM = document.getElementById('chosen').parentElement.querySelector('.quiz-card-back');
+          
+          card.classList.add('quiz-card-back-flip');
+          chosenCardBackDOM.classList.add('quiz-card-back-flip');
+        }
+      });
     },
   });
 });
