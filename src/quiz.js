@@ -122,12 +122,14 @@ document.addEventListener('alpine:init', () => {
       choiceElementDOM.id = 'chosen';
 
       const selectedChoice = this.round.choices[choiceElementDOM.id];
-      if (selectedChoice === this.round.answer) {
+      if (choiceElementDOM.dataset.choice === this.round.answer) {
         this.score += 1;
+
+        choiceElementDOM.parentElement.querySelector('.quiz-card-back').classList.add('green-border');
       }
 
       this.hasGuessed = true;
-      
+
       this._showCorrectAnswer();
     },
     

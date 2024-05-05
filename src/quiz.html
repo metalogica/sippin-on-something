@@ -37,7 +37,6 @@
               <div class="quiz-frame-choice-grid">
                 <template x-for="(choice, index) in $store.quiz.round.choices">
                   <div
-                    x-bind:id="index"
                     class="fade-in quiz-card"
                     @click="event => $store.quiz.guess(event);">
                     <div class="quiz-card-front" x-bind:data-choice="choice">
