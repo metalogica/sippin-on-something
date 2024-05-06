@@ -95,10 +95,10 @@ document.addEventListener('alpine:init', () => {
     competencyText: '',
     guess: '',
     hasGuessed: false,
-    currentRound: CURRENT_ROUND + 1,
+    currentRound: 1 || CURRENT_ROUND + 1,
     round: ROUNDS[CURRENT_ROUND],
-    score: 0,
-    state: STATE.NOT_STARTED,
+    score: 1 || 0,
+    state: STATE.COMPLETED,
 
     start () {
       this.state = STATE.IN_PROGRESS;
