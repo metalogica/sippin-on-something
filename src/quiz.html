@@ -66,10 +66,12 @@
             <div class="quiz-frame-result">
               <h1 class="quiz-header-result">Competency Level</h1>
               <div class="quiz-result-card">
-                <div>
-                  <span x-text="$store.quiz.score"></span><span>/10</span>
+                <div class="text-quiz-final-score">
+                  <span
+                    x-text="$store.quiz.score"></span><span>/10</span>
                 </div>
-                <span x-text="$store.quiz.competencyText"></span>
+                <span class="text-quiz-competency"
+                  x-text="$store.quiz.competencyText"></span>
               </div>
               <div class="quiz-frame-social-media">
                 <h2 class="quiz-header-social-media">Share your results</h2>

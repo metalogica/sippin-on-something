@@ -138,12 +138,12 @@ body {
 }
 
 .button-start {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'Modena Sans', Arial, sans-serif;
   font-weight: 400;
 
-  min-width: 40%;
-  min-height: 5%;
+  min-width: 50%;
+  min-height: 10%;
 
   background-color: #681A39;
   color: #F9F6ED;
@@ -365,6 +365,14 @@ body {
   height: 2.2rem;
 
   background-color: #681A39;
+}
+
+.text-quiz-final-score span {
+  font-size: 1.8rem;
+}
+
+.text-quiz-competency {
+  font-size: 1.35rem;
 }
 
 #link-logo {  
