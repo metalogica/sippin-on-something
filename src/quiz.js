@@ -71,7 +71,7 @@ const ROUNDS = [
   },
   {
     question: `Which of these is the most diverse grape?`,
-    answer: `Sauvignon Blanc`,
+    answer: `Chardonnay`,
     choices: randomize([`Merlot`, `Cabernet Sauvignon`, `Chardonnay`, `Sauvignon Blanc`]),
   },
   {

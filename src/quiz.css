@@ -271,14 +271,13 @@ body {
   min-height: 5%;
 
   margin: 0.1rem 0 1.25rem;
+  padding-top: 0.4rem;
 
   background-color: #681A39;
   color: #F9F6ED;
   
   text-transform: uppercase;
   text-align: center;
-  
-  border: none; 
 }
 
 .text-quiz-choices-score {
