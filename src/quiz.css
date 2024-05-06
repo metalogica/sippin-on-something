@@ -229,7 +229,6 @@ body {
   backface-visibility: hidden;
   transition: all 1s ease-out;
   transform: rotateY(0deg);
-
 }
 
 .quiz-card-back {
@@ -282,6 +281,10 @@ body {
   border: none; 
 }
 
+.text-quiz-choices-score {
+  margin-top: 1.2rem;
+}
+
 .text-round-number {
   font-size: 1.5rem;
   color: #F9F6ED;
@@ -295,6 +298,9 @@ body {
 .text-quiz-card-choice {
   color: #F9F6ED;
   pointer-events: none;
+
+  padding: 0 .2rem;
+  text-align: center;
 }
 
 .quiz-frame-result {
@@ -372,7 +378,9 @@ body {
 }
 
 .text-quiz-competency {
+  padding: 0 2.2rem;
   font-size: 1.35rem;
+  text-align: center;
 }
 
 #link-logo {  
