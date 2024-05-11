@@ -91,14 +91,14 @@ let CURRENT_ROUND = 0;
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
     choiceLabels: ['A', 'B', 'C', 'D'],
-    competencyLevel: '',
-    competencyText: '',
+    competencyLevel: '2',
+    competencyText: 'fefefefefefef',
     guess: '',
     hasGuessed: false,
     currentRound: CURRENT_ROUND + 1,
     round: ROUNDS[CURRENT_ROUND],
-    score: 0,
-    state: STATE.NOT_STARTED,
+    score: 2,
+    state: STATE.COMPLETED,
 
     start () {
       this.state = STATE.IN_PROGRESS;
