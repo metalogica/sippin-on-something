@@ -129,13 +129,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2.5rem;
 }
 
 .quiz-logo {
   max-width: 15%;
 }
 
-.quiz-header-start {
+h1.quiz-header-start {
   max-width: 65%;
 
   font-size: 2.5rem;
@@ -149,8 +150,8 @@ body {
   font-family: 'Modena Sans', Arial, sans-serif;
   font-weight: 400;
 
-  min-width: 50%;
-  min-height: 10%;
+  min-height: 6%;
+  padding: 0 2rem;
 
   background-color: #681A39;
   color: #F9F6ED;
@@ -482,4 +483,8 @@ h2.quiz-header-social-media {
     min-height: 65%;
     max-height: 75%;
   } 
+
+  h1.quiz-header-start {
+    font-size: 6rem;
+  }
 }
