@@ -251,7 +251,7 @@ h1.quiz-header-start {
   background-size: cover;
 
   backface-visibility: hidden;
-  transition: all 1s ease-out;
+  transition: all var(--transition-seconds) ease-out;
   transform: rotateY(0deg);
 }
 
@@ -273,7 +273,7 @@ h1.quiz-header-start {
   background-size: cover;
   
   backface-visibility: hidden;
-  transition: all 1s ease-out;
+  transition: all var(--transition-seconds) ease-out;
   transform: rotateY(180deg);
   
 }
