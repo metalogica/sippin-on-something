@@ -1,0 +1,60 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script defer src="quiz2.js"></script>
+    <script defer
+      src="alpine.js"></script>
+    <link rel="stylesheet" href="quiz2.css">
+
+    <title>Sippin On Something</title>
+  </head>
+  <body>
+    <div class="quiz-wrapper" x-cloak x-data>
+      <div class="main-logo"></div>
+
+      <div class="quiz-container">
+        <template x-if="$store.quiz.state === STATE.NOT_STARTED">
+          <div>
+            <h1>Discover your wine personality</h1>
+            <button
+              @click="() => $store.quiz.start()">Take the quiz</button>
+          </div>
+        </template>
+
+        <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
+          <div>
+            <div x-text="$store.quiz.round.question"></div>
+            <template x-for="(choice, index) in $store.quiz.round.choices">
+              <div @click="(event) => $store.quiz.select(event)"
+                x-bind:id="index"
+                x-text="choice.text"
+                x-bind:data-choice-id="choice.id"></div>
+            </template>
+            <button @click="event => $store.quiz.next(event)">Next</button>
+          </div>
+        </template>
+
+        <template x-if="$store.quiz.state === STATE.COMPLETED">
+          <div>
+            <h1>Your personality type</h1>
+            <div>
+              <h2 x-text="$store.quiz.personalityType"></h2>
+              <p x-text="$store.quiz.personalityTypeDescription">
+                <span x-text="$store.quiz.personalityTypeWine"></span>
+              </p>
+            </div>
+            <ul>
+              <li id="link-logo" alt="link logo"></li>
+              <li id="x-logo" alt="x logo"></li>
+              <li id="instagram-logo" alt="instagram logo"></li>
+              <li id="fb-logo" alt="facebook logo"></li>
+            </ul>
+          </div>
+        </template>
+      </div>
+
+    </div>
+  </body>
+</html>

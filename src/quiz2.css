@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Ivar Display';
+  src: url('./assets/fonts/ivar-display-condensed-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Modena Sans';
+  src: url('./assets/fonts/modena-sans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #681A39;
+  --color-secondary: #F9F6ED;
+  --color-green: #47E46E;
+  --color-red: #FF6161;
+
+  --font-stack-primary: 'Ivar Display', Arial, sans-serif;
+  --font-stack-secondary: 'Modena sans', Arial, sans-serif;
+  --root-font-size-percent: 62.5%; // 1rem = 10px
+
+  --border-radius: 0.75rem;
+  --margin-top: 1.25rem;
+  --margin-bottom: 1.25rem;
+
+  --transition-seconds: 0.5s;
+}
+
+/* globals */
+html {
+  font-size: var(--root-font-size-percent);
+}
+
+.quiz-wrapper * {
+  font-family: var(--font-stack-primary);
+
+  box-sizing: border-box;
+}
+
+body {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* utilities */
+.font-primary {
+  font-family: var(--font-stack-primary)!important;
+}
+
+.font-secondary {
+  font-family: var(--font-stack-secondary)!important;
+}
+
+.main-logo {
+  width: 100px;
+  height: 100px;
+
+  background-image: url('./assets/quiz-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* containers */
+.quiz-wrapper {
+  background-color: var(--color-secondary);
+  width: 100vw;
+  height: 100vh;
+}
