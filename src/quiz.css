@@ -34,11 +34,13 @@ body {
   margin: 0 !important;
 }
 
-.quiz-wrapper div, .quiz-wrapper h1, .quiz-wrapper h2 {
+.quiz-wrapper div, .quiz-wrapper h1, .quiz-wrapper h2, .quiz-wrapper p, .quiz-wrapper span {
   font-family: 'Ivar Display', Arial, sans-serif;
   font-weight: 400;
   color: #F9F6ED;
   margin: 0 0 0 0;
+
+  text-align: center;
 }
 
 .fade-in {
