@@ -2,6 +2,11 @@
   --border-radius: 0.75rem;
   --container-child-margin-top: 1.25rem;
   --container-child-margin-bottom: 1.25rem;
+
+  --color-primary: #681A39;
+  --color-secondary: #F9F6ED;
+
+  --transition-seconds: 0.5s;
 }
 
 @font-face {
@@ -42,6 +47,17 @@ body {
 
   text-align: center;
 }
+
+.quiz-wrapper button:hover {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  transition: var(--transition-seconds);
+}
+
+.quiz-wrapper button {
+  transition: var(--transition-seconds);
+}
+
 
 .fade-in {
   animation: fadeIn 500ms forwards;
