@@ -5,6 +5,8 @@
 
   --color-primary: #681A39;
   --color-secondary: #F9F6ED;
+  --color-green: #47E46E;
+  --color-red: #FF6161;
 
   --transition-seconds: 0.5s;
 }
@@ -229,6 +231,7 @@ h1.quiz-header-start {
 
   perspective: 1000px;
   transform-style: preserve-3d;
+  transform-origin: center;
 }
 
 .quiz-card-front {
@@ -274,8 +277,7 @@ h1.quiz-header-start {
   
   backface-visibility: hidden;
   transition: all var(--transition-seconds) ease-out;
-  transform: rotateY(180deg);
-  
+  transform: rotateY(180deg); 
 }
 
 .quiz-card-front-flip {
