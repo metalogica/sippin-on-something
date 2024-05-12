@@ -16,7 +16,7 @@
 
       <div class="quiz-container">
         <template x-if="$store.quiz.state === STATE.NOT_STARTED">
-          <div>
+          <div class="quiz-container__header">
             <h1>Discover your wine personality</h1>
             <button
               @click="() => $store.quiz.start()">Take the quiz</button>
