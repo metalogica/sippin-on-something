@@ -11,29 +11,32 @@
     <title>Sippin On Something</title>
   </head>
   <body>
-    <div class="quiz-wrapper" x-cloak x-data>
+    <div class="wrapper-quiz" x-cloak x-data>
       <div class="main-logo"></div>
 
-      <div class="quiz-container">
+      <div class="container-quiz">
         <template x-if="$store.quiz.state === STATE.NOT_STARTED">
-          <div class="quiz-container__header">
-            <h1>Discover your wine personality</h1>
-            <button
+          <div class="quiz-splash-page__container">
+            <h1 class="quiz-splash-page__header">Discover your wine
+              personality</h1>
+            <button class="quiz-splash-page__button"
               @click="() => $store.quiz.start()">Take the quiz</button>
           </div>
         </template>
 
         <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-          <div class="quiz-container__choices">
-            <h1 class="quiz-container__header"
+          <div class="choices__container">
+            <h1 class="choices__header"
               x-text="$store.quiz.round.question"></h1>
             <template x-for="(choice, index) in $store.quiz.round.choices">
-              <div @click="(event) => $store.quiz.select(event)"
+              <div class="choices__choice"
+                @click="(event) => $store.quiz.select(event)"
                 x-bind:id="index"
                 x-text="choice.text"
                 x-bind:data-choice-id="choice.id"></div>
             </template>
-            <button @click="event => $store.quiz.next(event)">Next</button>
+            <button class="choices__button"
+              @click="event => $store.quiz.next(event)">Next</button>
           </div>
         </template>
 
