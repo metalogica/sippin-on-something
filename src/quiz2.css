@@ -189,3 +189,7 @@ body {
 .choices__button {
   padding: 0.5rem 2rem;
 }
+
+.rounds__text {
+  font-size: var(--font-size-mobile-xlarge);
+} 

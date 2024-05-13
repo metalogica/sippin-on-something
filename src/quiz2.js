@@ -355,6 +355,7 @@ const QUIZ_NEXT_BUTTON_DOM_ID = 'choiceButton';
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
     roundNumber: 0,
+    roundsTotal: ROUNDS.length,
     hasSelected: false,
     round: ROUNDS[0],
     personalityType: '',

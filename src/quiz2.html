@@ -26,6 +26,12 @@
 
         <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
           <div class="choices__container animation-fade-in">
+            <div class="rounds__container">
+              <span class="rounds__text"
+                x-text="$store.quiz.roundNumber"></span>/
+              <span class="rounds__text"
+                x-text="$store.quiz.roundsTotal"></span>
+            </div>
             <h1 class="choices__header animation-fade-in"
               x-text="$store.quiz.round.question"></h1>
             <template x-for="(choice, index) in $store.quiz.round.choices">
