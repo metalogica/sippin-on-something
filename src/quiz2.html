@@ -24,8 +24,9 @@
         </template>
 
         <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-          <div>
-            <div x-text="$store.quiz.round.question"></div>
+          <div class="quiz-container__choices">
+            <h1 class="quiz-container__header"
+              x-text="$store.quiz.round.question"></h1>
             <template x-for="(choice, index) in $store.quiz.round.choices">
               <div @click="(event) => $store.quiz.select(event)"
                 x-bind:id="index"
