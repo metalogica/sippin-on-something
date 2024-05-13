@@ -14,7 +14,7 @@
     <div class="wrapper-quiz" x-cloak x-data>
       <div class="main-logo"></div>
 
-      <div class="container-quiz">
+      <div class="container-quiz animation-fade-in">
         <template x-if="$store.quiz.state === STATE.NOT_STARTED">
           <div class="quiz-splash-page__container">
             <h1 class="quiz-splash-page__header">Discover your wine
@@ -25,17 +25,17 @@
         </template>
 
         <template x-if="$store.quiz.state === STATE.IN_PROGRESS">
-          <div class="choices__container">
-            <h1 class="choices__header"
+          <div class="choices__container animation-fade-in">
+            <h1 class="choices__header animation-fade-in"
               x-text="$store.quiz.round.question"></h1>
             <template x-for="(choice, index) in $store.quiz.round.choices">
-              <div class="choices__choice"
+              <div class="choices__choice animation-fade-in"
                 @click="(event) => $store.quiz.select(event)"
                 x-bind:id="index"
                 x-text="choice.text"
                 x-bind:data-choice-id="choice.id"></div>
             </template>
-            <button class="choices__button"
+            <button id="choiceButton" class="choices__button hidden"
               @click="event => $store.quiz.next(event)">Next</button>
           </div>
         </template>

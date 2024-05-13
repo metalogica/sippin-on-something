@@ -350,6 +350,8 @@ const PERSONALITY_TYPE_WINE_MAP = {
   [PERSONALITY_TYPE.SOPHISTICATED_SIPPER]: `Bordeaux`, 
 }
 
+const QUIZ_NEXT_BUTTON_DOM_ID = 'choiceButton';
+
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
     roundNumber: 0,
@@ -381,6 +383,7 @@ document.addEventListener('alpine:init', () => {
       this._setScore(choiceScore);
       
       this._setHasSelected(true);
+      this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
     },
 
     next() {
@@ -411,6 +414,7 @@ document.addEventListener('alpine:init', () => {
       this._setRoundNumber(nextRoundNumber);
 
       this._setHasSelected(false);
+      this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
     },
 
     _resolvePersonalityType(score) {
@@ -423,6 +427,16 @@ document.addEventListener('alpine:init', () => {
       } else {
         return PERSONALITY_TYPE.CASUAL_SIPPER;
       }
+    },
+
+    _toggleDomElementVisibility(elementId) {
+      const element = document.getElementById(elementId);
+      console.log(element)
+      if (!element) {
+        return;
+      }
+
+      element.classList.toggle('hidden');
     },
 
     _getChoiceScore(choiceId) {

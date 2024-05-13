@@ -19,6 +19,15 @@
   font-style: normal;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 :root {
   --color-primary: #681A39;
   --color-secondary: #F9F6ED;
@@ -32,7 +41,7 @@
   --font-stack-secondary: 'Modena sans', Arial, sans-serif;
   --root-font-size-percent: 62.5%; 
   
-  --font-size-mobile-header: 3.5rem;
+  --font-size-mobile-header: 3.75rem;
   --font-size-mobile-subheader: 2.5rem;
   
   --font-size-mobile-x-large: 1.5rem;
@@ -60,6 +69,10 @@ body {
 }
 
 /* utilities */
+.animation-fade-in {
+  animation: fadeIn var(--transition-seconds) ease-in;
+}
+
 .font-primary {
   font-family: var(--font-stack-primary)!important;
 }
@@ -75,6 +88,11 @@ body {
   background-image: url('./assets/quiz-logo.png');
   background-size: cover;
   background-position: center;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all var(--transition-seconds) ease-in-out;
 }
 
 /* containers */
@@ -129,6 +147,7 @@ body {
   color: var(--color-secondary);
 
   padding: 1rem 2rem;
+  transition: all var(--transition-seconds) ease-in-out;
 }
 
 .choices__container {
@@ -151,7 +170,7 @@ body {
 }
 
 .choices__choice {
-  width: 22rem;
+  width: 26rem;
   height: 4.75rem;
   padding: 0.25rem 0.25rem;
 
