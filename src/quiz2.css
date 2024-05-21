@@ -309,8 +309,12 @@ body {
 }
 
 @media (min-width: 1060px) { 
-  .wrapper-quiz {
-    height: 95vh;
+  .main-logo {
+    margin-bottom: 3rem;
+  }
+
+  .choices__button {
+    margin-top: 3rem;
   }
 
   .choices__choice, .choices__header, .choices__container {
