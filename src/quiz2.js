@@ -337,7 +337,7 @@ const PERSONALITY_TYPE_SCORE_MAP = {
 }
 
 const PERSONALITY_TYPE_DESCRIPTION_MAP = {
-  [PERSONALITY_TYPE.CASUAL_SIPPER]: `You appreciate the simpler things in life. You enjoy wine, but you're not deeply knowledgeable. Your wine personality is Sauvignon`,
+  [PERSONALITY_TYPE.CASUAL_SIPPER]: `You appreciate the simpler things in life. You enjoy wine, but you're not deeply knowledgeable. Your wine personality is`,
   [PERSONALITY_TYPE.SOCIAL_SIPPER]: `You're likely to be found where the fun is and make great company. You're open to new and unique wine experiences. Your wine personality is`, 
   [PERSONALITY_TYPE.ADVENTUROUS_SIPPER]: `You're the life of the party that enjoys bold and unconventional wine choices. Your personality is`, 
   [PERSONALITY_TYPE.SOPHISTICATED_SIPPER]: `You are highly dynamic with a taste for the finer things in life and have a refined palate. Your wine knowledge is extensive. Your wine personality is`, 
@@ -359,11 +359,12 @@ document.addEventListener('alpine:init', () => {
     roundsTotal: ROUNDS.length,
     hasSelected: false,
     round: ROUNDS[0],
-    personalityType: 'Adventurous Sipper',
-    personalityTypeDescription: 'Yo\'re the life of the party that enjoys bold and nconventional wine choices. Your wine personality is',
-    personalityTypeWine: 'champagne',
-    score: 1,
-    state: STATE.COMPLETED,
+    personalityType: '',
+    personalityTypeDescription: '',
+    personalityTypeWine: '',
+    score: 0,
+    state: STATE.NOT_STARTED,
+    selectedChoiceId: '',
 
     start() {
       this.state = STATE.IN_PROGRESS;
@@ -377,17 +378,17 @@ document.addEventListener('alpine:init', () => {
       }
 
       if (this.hasSelected) {
-        return;
+        const selectedChoiceDomElement = this._findDomElementByClassName(CLASS_NAME_SELECTED);
+        this._removeClassName(selectedChoiceDomElement, CLASS_NAME_SELECTED);
+      } else {
+        this._setHasSelected(true);
+        this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
       }
       
       this._applyClassName(target, CLASS_NAME_SELECTED);
 
       const choiceId = Number(target.dataset.choiceId);
-      const choiceScore = this._getChoiceScore(choiceId);
-      this._setScore(choiceScore);
-      
-      this._setHasSelected(true);
-      this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
+      this._setSelectedChoiceId(choiceId);
     },
 
     next() {
@@ -412,6 +413,11 @@ document.addEventListener('alpine:init', () => {
         
         return;
       } else {
+        const choiceId = this._getSelectedChoiceId();
+        const choiceScore = this._getChoiceScore(choiceId);
+        this._setScore(choiceScore);
+        console.log(this.score)
+
         const selectedChoiceDomElement = this._findDomElementByClassName(CLASS_NAME_SELECTED);
         this._removeClassName(selectedChoiceDomElement, CLASS_NAME_SELECTED);
 
@@ -434,6 +440,10 @@ document.addEventListener('alpine:init', () => {
       } else {
         return PERSONALITY_TYPE.CASUAL_SIPPER;
       }
+    },
+
+    _findDomElementByDataAttribute(dataAttribute) {
+      return document.querySelector(`[data-${dataAttribute}]`);
     },
 
     _findDomElementByClassName(className) {
@@ -478,7 +488,15 @@ document.addEventListener('alpine:init', () => {
 
     _getScore() {
       return this.score;
-    },    
+    },
+
+    _setSelectedChoiceId(choiceId) {
+      this.selectedChoiceId = choiceId;
+    },
+
+    _getSelectedChoiceId() {
+      return this.selectedChoiceId;
+    },
 
     _setHasSelected(value) {
       this.hasSelected = value;

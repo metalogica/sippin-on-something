@@ -51,6 +51,7 @@
   --font-size-mobile-small: 0.85rem;
 
   --border-radius: 0.5rem;
+  --border-width: 0.1rem;
 
   --padding-mobile-xxlarge: 4rem;
   --padding-mobile-xlarge: 3rem;
@@ -102,7 +103,7 @@ body {
 }
 
 .selected {
-  border: 0.25rem solid var(--color-primary)!important;
+  border: var(--border-width) solid var(--color-primary)!important;
 }
 
 /* containers */
@@ -195,8 +196,12 @@ body {
   font-family: 'Bembo Standard Semibold';
   font-size: var(--font-size-mobile-x-large);
 
-  border: 0.1rem solid var(--color-tertiary);
+  border: var(--border-width) solid var(--color-tertiary);
   border-radius: var(--border-radius);
+}
+
+.choices__choice:hover {
+  border-color: var(--border-width) solid var(--color-tertiary);
 }
 
 .choices__button {
@@ -241,6 +246,7 @@ body {
 
 .results__text--wine-type {
   color: var(--color-tertiary);
+  font-size: var(--font-size-mobile-xx-large);
 }
 
 .social-media__header {
