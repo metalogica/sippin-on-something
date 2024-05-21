@@ -42,19 +42,20 @@
   --root-font-size-percent: 62.5%; 
   
   --font-size-mobile-header: 3.75rem;
-  --font-size-mobile-subheader: 2.5rem;
+  --font-size-mobile-subheader: 2.6rem;
   
+  --font-size-mobile-xx-large: 1.6rem;
   --font-size-mobile-x-large: 1.5rem;
   --font-size-mobile-large: 1.25rem;
   --font-size-mobile-medium: 1rem;
   --font-size-mobile-small: 0.85rem;
 
-  --border-radius: 0.25rem;
+  --border-radius: 0.5rem;
   --margin-top: 1.25rem;
   --margin-bottom: 1.25rem;
   --flex-gap: 1.5rem;
 
-  --transition-seconds: 0.5s;
+  --transition-seconds: 0.75s;
 }
 
 /* globals */
@@ -93,6 +94,10 @@ body {
 .hidden {
   opacity: 0;
   transition: all var(--transition-seconds) ease-in-out;
+}
+
+.selected {
+  border: 0.25rem solid var(--color-primary)!important;
 }
 
 /* containers */
@@ -165,8 +170,10 @@ body {
 }
 
 .choices__header {
+  width: 26rem;
   font-size: var(--font-size-mobile-subheader);
   margin: 0;
+  text-align: center;
 }
 
 .choices__choice {
@@ -174,6 +181,7 @@ body {
   height: 4.75rem;
   padding: 0.25rem 0.25rem;
 
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -191,5 +199,5 @@ body {
 }
 
 .rounds__text {
-  font-size: var(--font-size-mobile-xlarge);
+  font-size: var(--font-size-mobile-xx-large);
 } 

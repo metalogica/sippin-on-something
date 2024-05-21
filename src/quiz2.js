@@ -255,7 +255,7 @@ const ROUNDS = [
     choices: [
       {
         id: 1,
-        text: `The cheapeest option on the menu`,
+        text: `The cheapest option on the menu`,
         score: 1
       },
       {
@@ -350,6 +350,7 @@ const PERSONALITY_TYPE_WINE_MAP = {
   [PERSONALITY_TYPE.SOPHISTICATED_SIPPER]: `Bordeaux`, 
 }
 
+const CLASS_NAME_SELECTED = 'selected';
 const QUIZ_NEXT_BUTTON_DOM_ID = 'choiceButton';
 
 document.addEventListener('alpine:init', () => {
@@ -379,6 +380,8 @@ document.addEventListener('alpine:init', () => {
         return;
       }
       
+      this._applyClassName(target, CLASS_NAME_SELECTED);
+
       const choiceId = Number(target.dataset.choiceId);
       const choiceScore = this._getChoiceScore(choiceId);
       this._setScore(choiceScore);
@@ -408,14 +411,17 @@ document.addEventListener('alpine:init', () => {
         this.state = STATE.COMPLETED;
         
         return;
+      } else {
+        const selectedChoiceDomElement = this._findDomElementByClassName(CLASS_NAME_SELECTED);
+        this._removeClassName(selectedChoiceDomElement, CLASS_NAME_SELECTED);
+
+        const nextRoundNumber = this.roundNumber + 1;
+        this._setRound(nextRoundNumber);
+        this._setRoundNumber(nextRoundNumber);
+  
+        this._setHasSelected(false);
+        this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
       }
-
-      const nextRoundNumber = this.roundNumber + 1;
-      this._setRound(nextRoundNumber);
-      this._setRoundNumber(nextRoundNumber);
-
-      this._setHasSelected(false);
-      this._toggleDomElementVisibility(QUIZ_NEXT_BUTTON_DOM_ID);
     },
 
     _resolvePersonalityType(score) {
@@ -430,9 +436,33 @@ document.addEventListener('alpine:init', () => {
       }
     },
 
+    _findDomElementByClassName(className) {
+      if (!className) {
+        return;
+      }
+
+      return document.querySelectorAll(`.${className}`)[0];
+    },
+
+    _applyClassName(domElement, className) {
+      if (!domElement || !className) {
+        return;
+      }
+
+      domElement.classList.add(className);
+    },
+
+    _removeClassName(domElement, className) {
+      if (!domElement || !className) {
+        return;
+      }
+
+      domElement.classList.remove(className);
+    },
+
     _toggleDomElementVisibility(elementId) {
       const element = document.getElementById(elementId);
-      console.log(element)
+
       if (!element) {
         return;
       }
