@@ -298,3 +298,5 @@ body {
   background-image: url('./assets/svg/fb-logo.svg');
   background-size: 70%;
 }
+
+@media (min-width: 1365px) {}
