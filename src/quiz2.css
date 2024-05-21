@@ -51,6 +51,11 @@
   --font-size-mobile-small: 0.85rem;
 
   --border-radius: 0.5rem;
+
+  --padding-mobile-xxlarge: 4rem;
+  --padding-mobile-xlarge: 3rem;
+  --padding-mobile-large: 2rem;
+  --padding-mobile-medium: 1rem;
   --margin-top: 1.25rem;
   --margin-bottom: 1.25rem;
   --flex-gap: 1.5rem;
@@ -201,3 +206,89 @@ body {
 .rounds__text {
   font-size: var(--font-size-mobile-xx-large);
 } 
+
+.results__container {
+  width: 26rem;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.results__card {
+  box-sizing: border-box;
+  width: 26rem;
+  background-color: var(--color-primary);
+  
+  padding: var(--padding-mobile-large);
+  border-radius: var(--border-radius);
+}
+
+.results__header {
+  font-size: var(--font-size-mobile-header);
+}
+
+.results__subheader {
+  color: var(--color-tertiary);
+  font-size: var(--font-size-mobile-xx-large);
+}
+
+.results__text {
+  color: var(--color-white);
+  font-size: var(--font-size-mobile-xx-large);
+}
+
+.results__text--wine-type {
+  color: var(--color-tertiary);
+}
+
+.social-media__header {
+  font-size: var(--font-size-mobile-subheader);
+}
+
+.social-media__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--flex-gap);
+
+  width: 26rem;
+}
+
+.social-media__header {
+  font-size: var(--font-size-mobile-subheader);
+  margin: var(--margin-bottom);
+}
+
+.social-media__link {
+  width: 4rem;
+  height: 4rem;
+
+  border-radius: var(--border-radius);
+
+  background-color: var(--color-primary);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#link-logo {
+  background-image: url('./assets/svg/link-logo.svg');
+  background-size: 70%;
+}
+
+#x-logo {
+  background-image: url('./assets/svg/x-logo.svg');
+  background-size: 50%;
+}
+
+#instagram-logo {
+  background-image: url('./assets/svg/instagram-logo.svg');
+  background-size: 70%;
+}
+
+#fb-logo {
+  background-image: url('./assets/svg/fb-logo.svg');
+  background-size: 70%;
+}

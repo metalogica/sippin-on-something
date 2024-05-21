@@ -359,11 +359,11 @@ document.addEventListener('alpine:init', () => {
     roundsTotal: ROUNDS.length,
     hasSelected: false,
     round: ROUNDS[0],
-    personalityType: '',
-    personalityTypeDescription: '',
-    personalityTypeWine: '',
-    score: 0,
-    state: STATE.NOT_STARTED,
+    personalityType: 'Adventurous Sipper',
+    personalityTypeDescription: 'Yo\'re the life of the party that enjoys bold and nconventional wine choices. Your wine personality is',
+    personalityTypeWine: 'champagne',
+    score: 1,
+    state: STATE.COMPLETED,
 
     start() {
       this.state = STATE.IN_PROGRESS;

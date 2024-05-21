@@ -47,20 +47,27 @@
         </template>
 
         <template x-if="$store.quiz.state === STATE.COMPLETED">
-          <div>
-            <h1>Your personality type</h1>
-            <div>
-              <h2 x-text="$store.quiz.personalityType"></h2>
-              <p x-text="$store.quiz.personalityTypeDescription">
-                <span x-text="$store.quiz.personalityTypeWine"></span>
+          <div class="results__container">
+            <h1 class="results__header">Your personality type</h1>
+            <div class="results__card">
+              <h2 class="results__subheader"
+                x-text="$store.quiz.personalityType"></h2>
+              <p class="results__text"
+                x-text="$store.quiz.personalityTypeDescription">
+                <span class="results__text--wine-type"
+                  x-text="$store.quiz.personalityTypeWine"></span>
               </p>
             </div>
-            <ul>
-              <li id="link-logo" alt="link logo"></li>
-              <li id="x-logo" alt="x logo"></li>
-              <li id="instagram-logo" alt="instagram logo"></li>
-              <li id="fb-logo" alt="facebook logo"></li>
-            </ul>
+            <h3 class="social-media__header">Share your results</h3>
+            <div class="social-media__container">
+              <div class="social-media__link" id="link-logo"
+                alt="link logo"></div>
+              <div class="social-media__link" id="x-logo" alt="x logo"></div>
+              <div class="social-media__link" id="instagram-logo"
+                alt="instagram logo"></div>
+              <div class="social-media__link" id="fb-logo"
+                alt="facebook logo"></div>
+            </div>
           </div>
         </template>
       </div>
