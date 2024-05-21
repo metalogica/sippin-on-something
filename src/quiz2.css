@@ -50,6 +50,14 @@
   --font-size-mobile-medium: 1rem;
   --font-size-mobile-small: 0.85rem;
 
+  --container-width-desktop: 60rem;
+  --container-width-mobile: 26rem;
+  
+  --font-size-desktop-header: 5.8rem;
+  --font-size-desktop-subheader: 3.5rem;
+  
+  --font-size-desktop-large: 2rem;
+
   --border-radius: 0.5rem;
   --border-width: 0.1rem;
 
@@ -176,14 +184,14 @@ body {
 }
 
 .choices__header {
-  width: 26rem;
+  width: var(--container-width-mobile);
   font-size: var(--font-size-mobile-subheader);
   margin: 0;
   text-align: center;
 }
 
 .choices__choice {
-  width: 26rem;
+  width: var(--container-width-mobile);
   height: 4.75rem;
   padding: 0.25rem 0.25rem;
 
@@ -198,6 +206,7 @@ body {
 
   border: var(--border-width) solid var(--color-tertiary);
   border-radius: var(--border-radius);
+  background-color: var(--color-white);
 }
 
 .choices__choice:hover {
@@ -213,7 +222,7 @@ body {
 } 
 
 .results__container {
-  width: 26rem;
+  width: var(--container-width-mobile);
   
   display: flex;
   flex-direction: column;
@@ -223,7 +232,7 @@ body {
 
 .results__card {
   box-sizing: border-box;
-  width: 26rem;
+  width: var(--container-width-mobile);
   background-color: var(--color-primary);
   
   padding: var(--padding-mobile-large);
@@ -260,7 +269,7 @@ body {
   align-items: center;
   gap: var(--flex-gap);
 
-  width: 26rem;
+  width: var(--container-width-mobile);
 }
 
 .social-media__header {
@@ -299,4 +308,32 @@ body {
   background-size: 70%;
 }
 
-@media (min-width: 1365px) {}
+@media (min-width: 1060px) { 
+  .wrapper-quiz {
+    height: 95vh;
+  }
+
+  .choices__choice, .choices__header, .choices__container {
+    width: var(--container-width-desktop)!important;
+  }
+
+  .choices__container {
+    height: 45rem;
+  }
+
+  .choices__choice {
+    height: 6rem;
+  }
+
+  .choices__header {
+    font-size: var(--font-size-desktop-subheader);
+  }
+
+  .quiz-splash-page__header {
+    font-size: var(--font-size-desktop-header);
+  }
+
+  .choices__choice, .rounds__text, .quiz-splash-page__button, .choices__button {
+    font-size: var(--font-size-desktop-large);
+  }
+}
