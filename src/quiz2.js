@@ -15,7 +15,7 @@ const randomize = (originalArray) => {
 
 const QUIZ_LINK = 'https://sippinonsomething.com/quiz';
 
-const PLATFORM_LINK_HANDLER_MAP = {
+const PLATFORM_SHARE_HANDLER_MAP = {
   x: ({ personalityType }) => { 
     const text = encodeURIComponent(`I just took the wine personality quiz and discovered that I'm a ${personalityType}! 🍷✨
 
@@ -472,13 +472,13 @@ document.addEventListener('alpine:init', () => {
     },
 
     share(platform) {
-      const linkHandler = PLATFORM_LINK_HANDLER_MAP[platform];
+      const shareHandler = PLATFORM_SHARE_HANDLER_MAP[platform];
 
-      if (!linkHandler) {
+      if (!shareHandler) {
         window.alert('Oops! Something went wrong!');
       }
 
-      const link = linkHandler({ personalityType: this._getPersonalityType() });
+      shareHandler({ personalityType: this._getPersonalityType() });
     },
 
     _resolvePersonalityType(score) {

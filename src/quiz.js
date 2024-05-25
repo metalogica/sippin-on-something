@@ -13,6 +13,57 @@ const randomize = (originalArray) => {
   return shuffledArray.map(index => originalArray[index]);
 }
 
+const QUIZ_LINK = 'https://sippinonsomething.com/quiz';
+
+const PLATFORM_SHARE_HANDLER_MAP = {
+  x: ({ score }) => { 
+    const text = encodeURIComponent(`🍷 I scored ${score}/10 on the wine knowledge quiz from Sippin' on Somethin'! How well do you know your wine? 🍇🍷
+
+Think you can beat my score? Test your knowledge and see where you stand! 🥂✨
+
+👉 Take the quiz now: ${QUIZ_LINK}
+
+#SippinOnSomethin`);
+
+    const link = `https://x.com/intent/post?text=${text}`;
+
+    window.open(link, '_blank');
+  },
+
+  facebook: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${QUIZ_LINK}&amp;src=sdkpreparse`, '_blank'),
+
+  instagram: ({ score }) => {
+    const text = encodeURIComponent(`🍷 I scored ${score}/10 on the wine knowledge quiz from Sippin' on Somethin'! How well do you know your wine? 🍇🍷
+
+Think you can beat my score? Test your knowledge and see where you stand! 🥂✨
+
+👉 Take the quiz now and share your results: ${QUIZ_LINK}
+
+#SippinOnSomethin`);
+    
+    const link = `https://www.threads.net/intent/post?text=${text}`;
+
+    window.open(link, '_blank');
+  },
+
+  link: ({ score}) => {
+    const text = `🍷 I scored ${score}/10 on the wine knowledge quiz from Sippin' on Somethin'! How well do you know your wine? 🍇🍷
+
+Think you can beat my score? Test your knowledge and see where you stand! 🥂✨
+
+👉 Take the quiz now and share your results: ${QUIZ_LINK}
+
+#SippinOnSomethin`;
+
+    navigator.clipboard.writeText(text);
+
+    setTimeout(() => {
+      document.querySelector('.social-media__link-popup').classList.add('hidden');
+    }, 1000);
+  }
+}
+
+
 const STATE = {
   NOT_STARTED: 0,
   IN_PROGRESS: 1,
@@ -91,8 +142,8 @@ let CURRENT_ROUND = 0;
 document.addEventListener('alpine:init', () => {
   Alpine.store('quiz', {
     choiceLabels: ['A', 'B', 'C', 'D'],
-    competencyLevel: '',
-    competencyText: '',
+    competencyLevel: 'competencyLevel',
+    competencyText: 'competencyText',
     guess: '',
     hasGuessed: false,
     currentRound: CURRENT_ROUND + 1,
@@ -130,6 +181,16 @@ document.addEventListener('alpine:init', () => {
 
       this._showCorrectAnswer();
     },
+
+    share(platform) {
+      const shareHandler = PLATFORM_SHARE_HANDLER_MAP[platform];
+
+      if (!shareHandler) {
+        window.alert('Oops! Something went wrong!');
+      }
+
+      shareHandler({ score: this._getScore() });      
+    },
     
     nextRound() {
       const nextRound = ROUNDS[CURRENT_ROUND + 1];
@@ -145,6 +206,10 @@ document.addEventListener('alpine:init', () => {
         this.state = STATE.COMPLETED;
         this.competencyText = COMPETENCY_LEVELS[this.score];
       }
+    },
+
+    _getScore() {
+      return this.score;
     },
     
     _clearSelected() {

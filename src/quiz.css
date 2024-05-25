@@ -4,6 +4,7 @@
   --container-child-margin-bottom: 1.25rem;
 
   --color-primary: #681A39;
+  --color-primary-hover: #90244f;
   --color-secondary: #F9F6ED;
   --color-green: #47E46E;
   --color-red: #FF6161;
@@ -39,6 +40,11 @@ body {
   border: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all var(--transition-seconds) ease-in-out;
 }
 
 .quiz-wrapper div, .quiz-wrapper h1, .quiz-wrapper h2, .quiz-wrapper p, .quiz-wrapper span {
@@ -480,8 +486,21 @@ h2.quiz-header-social-media {
 }
 
 .quiz-wrapper li:hover {
-  transform: translateY(-2px);
+  background: var(--color-primary-hover);
   transition: var(--transition-seconds);
+}
+
+.social-media__link-popup-container {
+  position: relative;
+}
+
+.social-media__link-popup {
+  position: absolute;
+  bottom: -1.75rem;
+  left: -1rem;
+  width: 5rem;
+  text-align: center;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
