@@ -60,12 +60,27 @@
             </div>
             <h3 class="social-media__header">Share your results</h3>
             <div class="social-media__container">
-              <div class="social-media__link" id="link-logo"
-                alt="link logo"></div>
-              <div class="social-media__link" id="x-logo" alt="x logo"></div>
-              <div class="social-media__link" id="instagram-logo"
+              <div class="social-media__link-popup-container"
+                x-data="{ clicked: false }">
+                <div class="social-media__link"
+                  id="link-logo"
+                  @click="() => $store.quiz.share('link'); clicked = true;"
+                  alt="link logo">
+                </div>
+                <span class="social-media__link-popup" x-show="clicked"
+                  x-transition.duration.500ms>Link
+                  copied!</span>
+              </div>
+              <div class="social-media__link" id="x-logo"
+                @click="() => $store.quiz.share('x')"
+                alt="x logo"></div>
+              <div class="social-media__link"
+                @click="() => $store.quiz.share('instagram')"
+                id="instagram-logo"
                 alt="instagram logo"></div>
-              <div class="social-media__link" id="fb-logo"
+              <div class="social-media__link"
+                @click="() => $store.quiz.share('facebook')"
+                id="fb-logo"
                 alt="facebook logo"></div>
             </div>
           </div>

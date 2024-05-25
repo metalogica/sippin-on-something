@@ -297,6 +297,21 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+.social-media__link:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.social-media__link-popup-container {
+  position: relative;
+}
+
+.social-media__link-popup {
+  position: absolute;
+  bottom: -1.75rem;
+  left: -0.5rem;
+  width: 5rem;
+  text-align: center;
+}
 
 #link-logo {
   background-image: url('./assets/svg/link-logo.svg');

@@ -13,6 +13,48 @@ const randomize = (originalArray) => {
   return shuffledArray.map(index => originalArray[index]);
 }
 
+const QUIZ_LINK = 'https://sippinonsomething.com/quiz';
+
+const PLATFORM_LINK_HANDLER_MAP = {
+  x: ({ personalityType }) => { 
+    const text = encodeURIComponent(`I just took the wine personality quiz and discovered that I'm a ${personalityType}! 🍷✨
+
+👉 Click the link to discover your wine personality: ${QUIZ_LINK}`);
+
+    const link = `https://x.com/intent/post?text=${text}`;
+
+    window.open(link, '_blank');
+  },
+
+  facebook: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${QUIZ_LINK}&amp;src=sdkpreparse`, '_blank'),
+
+  instagram: ({ personalityType }) => {
+    const text = encodeURIComponent(`I just took the wine personality quiz and discovered that I'm a ${personalityType}!
+
+Curious about your wine personality? Do you have a sophisticated palate like me, or are you a bold adventurer? Take the quiz and find out!
+
+Click the link to discover your wine personality: ${QUIZ_LINK}`);
+    
+    const link = `https://www.threads.net/intent/post?text=${text}`;
+
+    window.open(link, '_blank');
+  },
+
+  link: ({ personalityType}) => {
+    const text = `🎉 I just took the wine personality quiz and discovered that I'm a ${personalityType}! 🍷✨
+
+Curious about your wine personality? Do you have a sophisticated palate like me, or are you a bold adventurer? Take the quiz and find out!  🍇🍷
+
+👉 Click the link to discover your wine personality: ${QUIZ_LINK}`;
+
+    navigator.clipboard.writeText(text);
+
+    setTimeout(() => {
+      document.querySelector('.social-media__link-popup').classList.add('hidden');
+    }, 1000);
+  }
+}
+
 const STATE = {
   NOT_STARTED: 0,
   IN_PROGRESS: 1,
@@ -359,11 +401,11 @@ document.addEventListener('alpine:init', () => {
     roundsTotal: ROUNDS.length,
     hasSelected: false,
     round: ROUNDS[0],
-    personalityType: '',
-    personalityTypeDescription: '',
-    personalityTypeWine: '',
-    score: 0,
-    state: STATE.NOT_STARTED,
+    personalityType: 'personality type hbfhbfvuejuyb',
+    personalityTypeDescription: 'Personality description',
+    personalityTypeWine: 'Personality type wine',
+    score: 10,
+    state: STATE.COMPLETED,
     selectedChoiceId: '',
 
     start() {
@@ -430,6 +472,16 @@ document.addEventListener('alpine:init', () => {
       }
     },
 
+    share(platform) {
+      const linkHandler = PLATFORM_LINK_HANDLER_MAP[platform];
+
+      if (!linkHandler) {
+        window.alert('Oops! Something went wrong!');
+      }
+
+      const link = linkHandler({ personalityType: this._getPersonalityType() });
+    },
+
     _resolvePersonalityType(score) {
       if (score > PERSONALITY_TYPE_SCORE_MAP.SOPHISTICATED_SIPPER) {
         return PERSONALITY_TYPE.SOPHISTICATED_SIPPER;
@@ -488,6 +540,10 @@ document.addEventListener('alpine:init', () => {
 
     _getScore() {
       return this.score;
+    },
+
+    _getPersonalityType() {
+      return this.personalityType;
     },
 
     _setSelectedChoiceId(choiceId) {
