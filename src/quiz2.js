@@ -401,11 +401,11 @@ document.addEventListener('alpine:init', () => {
     roundsTotal: ROUNDS.length,
     hasSelected: false,
     round: ROUNDS[0],
-    personalityType: 'personality type hbfhbfvuejuyb',
-    personalityTypeDescription: 'Personality description',
-    personalityTypeWine: 'Personality type wine',
-    score: 10,
-    state: STATE.COMPLETED,
+    personalityType: '',
+    personalityTypeDescription: '',
+    personalityTypeWine: '',
+    score: 0,
+    state: STATE.NOT_STARTED,
     selectedChoiceId: '',
 
     start() {
@@ -458,7 +458,6 @@ document.addEventListener('alpine:init', () => {
         const choiceId = this._getSelectedChoiceId();
         const choiceScore = this._getChoiceScore(choiceId);
         this._setScore(choiceScore);
-        console.log(this.score)
 
         const selectedChoiceDomElement = this._findDomElementByClassName(CLASS_NAME_SELECTED);
         this._removeClassName(selectedChoiceDomElement, CLASS_NAME_SELECTED);
