@@ -146,6 +146,8 @@ body {
   align-items: center;
   
   background-image: url('./assets/quiz2-background.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .quiz-splash-page__container {
