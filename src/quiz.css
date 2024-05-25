@@ -262,8 +262,8 @@ h1.quiz-header-start {
 }
 
 .quiz-card-front-card-icon {
-  width: 6rem;
-  height: 6rem;
+  width: 2rem;
+  height: 2rem;
 
   background-image: url('./assets/svg/card-icon.svg');
   background-position: center;
@@ -546,4 +546,9 @@ h2.quiz-header-social-media {
   h2.quiz-subheader-result {
     font-size: 3.25rem;
   }   
+
+  .quiz-card-front-card-icon {
+    width: 6rem;
+    height: 6rem;
+  }
 }
