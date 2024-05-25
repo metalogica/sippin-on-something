@@ -40,6 +40,7 @@
   --font-stack-primary: 'Ivar Display', Arial, sans-serif;
   --font-stack-secondary: 'Modena sans', Arial, sans-serif;
   --root-font-size-percent: 62.5%; 
+  --letter-spacing: .1rem;
   
   --font-size-mobile-header: 3.75rem;
   --font-size-mobile-subheader: 2.6rem;
@@ -55,7 +56,8 @@
   
   --font-size-desktop-header: 5.8rem;
   --font-size-desktop-subheader: 3.5rem;
-  
+
+  --font-size-desktop-xlarge-header: 5rem;
   --font-size-desktop-large: 2rem;
 
   --border-radius: 0.5rem;
@@ -131,6 +133,7 @@ body {
   color: var(--color-primary);
   box-sizing: border-box;
   border: none;
+  letter-spacing: var(--letter-spacing);
 }
 
 .container-quiz {
@@ -317,7 +320,7 @@ body {
     margin-top: 3rem;
   }
 
-  .choices__choice, .choices__header, .choices__container {
+  .choices__choice, .choices__header, .choices__container, .results__card, .results__container {
     width: var(--container-width-desktop)!important;
   }
 
@@ -338,6 +341,15 @@ body {
   }
 
   .choices__choice, .rounds__text, .quiz-splash-page__button, .choices__button {
+    font-size: var(--font-size-desktop-large);
+  }
+
+  .results__subheader {
+    font-size: var(--font-size-desktop-xlarge-header);
+    margin: 0;
+  }
+
+  .results__text, .results__text--wine-type {
     font-size: var(--font-size-desktop-large);
   }
 }

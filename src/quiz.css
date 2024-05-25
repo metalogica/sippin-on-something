@@ -261,6 +261,16 @@ h1.quiz-header-start {
   transform: rotateY(0deg);
 }
 
+.quiz-card-front-card-icon {
+  width: 6rem;
+  height: 6rem;
+
+  background-image: url('./assets/svg/card-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: 55% 55%;
+}
+
 .quiz-card-back {
   position: absolute;
   top: 0;
