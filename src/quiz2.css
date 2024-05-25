@@ -30,6 +30,7 @@
 
 :root {
   --color-primary: #681A39;
+  --color-primary-hover: #81314a;
   --color-secondary: #F9F6ED;
   --color-tertiary: #E3C67E;
   --color-white: #FFFFFF;
@@ -172,6 +173,10 @@ body {
 
   padding: 1rem 2rem;
   transition: all var(--transition-seconds) ease-in-out;
+}
+
+.quiz-splash-page__button:hover {
+  background-color: var(--color-primary-hover);
 }
 
 .choices__container {
