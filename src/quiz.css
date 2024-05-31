@@ -133,10 +133,6 @@ body {
   align-items: center;
 }
 
-.bg-main {
-  background-image: url('./assets/quiz-background.jpg');
-}
-
 .quiz-container {
   width: 95vw;
   height: 82vh;
