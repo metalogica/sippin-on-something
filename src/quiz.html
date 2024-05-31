@@ -78,24 +78,23 @@
               </div>
               <div class="quiz-frame-social-media">
                 <h2 class="quiz-header-social-media">Share results</h2>
-                <ul>
-                  <div class="social-media__link-popup-container"
-                    x-data="{ clicked: false }">
-                    <li id="link-logo"
-                      @click="() => $store.quiz.share('link'); clicked = true;"
-                      alt="link logo"></li>
-                    <p x-show="clicked" x-transition.duration.500ms
-                      class="social-media__link-popup">Link
-                      copied!</p>
-                  </div>
+                <div class="social-media__link-popup-container"
+                  x-data="{ clicked: false }">
+                  <li id="link-logo"
+                    @click="() => $store.quiz.share('link'); clicked = true;"
+                    alt="link logo"></li>
+                  <p x-show="clicked" x-transition.duration.500ms
+                    class="social-media__link-popup">Link
+                    copied!</p>
                   <li id="x-logo" @click="() => $store.quiz.share('x')"
                     alt="x logo"></li>
                   <li id="instagram-logo"
                     @click="() => $store.quiz.share('instagram')"
                     alt="instagram logo"></li>
-                  <li id="fb-logo" @click="() => $store.quiz.share('facebook')"
+                  <li id="fb-logo"
+                    @click="() => $store.quiz.share('facebook')"
                     alt="facebook logo"></li>
-                </ul>
+                </div>
               </div>
             </div>
           </template>

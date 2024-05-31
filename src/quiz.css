@@ -510,6 +510,11 @@ h2.quiz-header-social-media {
 
 .social-media__link-popup-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  min-width: 16rem;
 }
 
 .social-media__link-popup {
@@ -532,6 +537,10 @@ h1.quiz-header-choices {
 
 // iphone 14 pro max
 @media (min-width: 430px) {
+  .social-media__link-popup-container {
+    gap: 15px;
+  }
+
   .text-quiz-choices-score {
     display: block;
   }
@@ -570,6 +579,10 @@ h1.quiz-header-choices {
 
 // ipads and desktop 
 @media (min-width: 768px) {
+  .social-media__link-popup-container {
+    gap: 15px;
+  }
+
   .text-quiz-choices-score {
     display: block;
   }
