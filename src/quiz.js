@@ -107,8 +107,8 @@ const ROUNDS = [
   },
   {
     question: `Which wine-making method gives wine a crisp and effervescent profile?`,
-    answer: `Both Steel barrel aging AND Egg barrel aging`,
-    choices: randomize([`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both Steel barrel aging AND Egg barrel aging`]),
+    answer: `Both steel and egg barrel aging`,
+    choices: randomize([`Steel barrel aging`, `Oak barrel aging`, `Egg barrel aging`, `Both steel and egg barrel aging`]),
   },
   {
     question: `Which country is not a top-five producer of wine?`,
