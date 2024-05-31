@@ -11,7 +11,7 @@
 
   --transition-seconds: 0.5s;
 
-  --font-size-subheader-smallest-device: 1.25rem;
+  --font-size-subheader-smallest-device: 1.85rem;
   --font-size-paragraph-smallest-device: 1.15rem;
 }
 
@@ -521,8 +521,20 @@ h2.quiz-header-social-media {
   font-size: 1rem;
 }
 
+.text-quiz-choices-score {
+  display: none;
+}
+
+h1.quiz-header-choices {
+  height: 4.4rem;
+}
+
 // iphone 14 pro max
 @media (min-width: 430px) {
+  .text-quiz-choices-score {
+    display: block;
+  }
+
   .quiz-container {
     /* width: 90%; */
     /* height: 90vh; */
@@ -550,8 +562,12 @@ h2.quiz-header-social-media {
   }
 }
 
+// ipads and desktop 
 @media (min-width: 768px) {
-  // ipads and desktop 
+  .text-quiz-choices-score {
+    display: block;
+  }
+
   .quiz-frame-start {
     height: 90vh;
   }
