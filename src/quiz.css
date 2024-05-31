@@ -281,8 +281,8 @@ h1.quiz-header-choices {
 }
 
 .quiz-card-front-card-icon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.2rem!important;
+  height: 2.2rem!important;
 
   background-image: url('./assets/svg/card-icon.svg');
   background-position: center;
