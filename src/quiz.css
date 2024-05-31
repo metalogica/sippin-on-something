@@ -163,6 +163,8 @@ body {
   background-image: url('./assets/quiz-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+
+  border-radius: 15px;
 }
 
 .quiz-logo {
