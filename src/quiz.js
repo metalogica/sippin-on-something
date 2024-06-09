@@ -248,11 +248,12 @@ document.addEventListener('alpine:init', () => {
 
       Array.from(document.querySelectorAll('.quiz-card-back')).forEach(card => {
         if (card.dataset.choice === this.round.answer) {
-          // tODO debug
           const chosenCardBackDOM = document.getElementById('chosen').parentElement.querySelector('.quiz-card-back');
           
           card.classList.add('quiz-card-back-flip');
-          chosenCardBackDOM.classList.add('quiz-card-back-flip');
+          if (chosenCardBackDOM) {
+            chosenCardBackDOM.classList.add('quiz-card-back-flip');
+          }
         }
       });
     },
