@@ -556,6 +556,15 @@ h1.quiz-header-choices {
 }
 
 /* large mobile */
+@media (min-width: 428px) {
+  /* result screen - large mobile */
+  .quiz-frame-result {
+    height: 60rem;
+    justify-content: space-evenly;
+  }
+}
+
+/* ipad */
 @media (min-width: 768px) {
   .text-quiz-choices-score {
     display: block;
@@ -612,10 +621,6 @@ h1.quiz-header-choices {
   .quiz-card-front-card-icon {
     width: 2.8rem!important;
     height: 2.8rem!important;
-  }
-
-  .quiz-frame-result {
-    height: 60rem;
   }
 }
 
