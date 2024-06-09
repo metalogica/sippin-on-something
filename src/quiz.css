@@ -15,7 +15,7 @@
   --font-size-paragraph-smallest-device: 1.15rem;
   
   --font-size-header-large-desktop: 5rem;
-  --font-size-subheader-large-desktop: 3.2rem;
+  --font-size-subheader-large-desktop: 2.8rem;
 
   --modena-sans-letter-spacing: 0.1rem;
 }
@@ -673,6 +673,11 @@ h1.quiz-header-choices {
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
+  }
+
+  div.quiz-frame-social-media {
+    justify-content: space-evenly;
+    height: 11rem;
   }
   
   h2.quiz-header-social-media {
