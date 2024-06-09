@@ -75,23 +75,28 @@
                 </div>
                 <span class="text-quiz-competency"
                   x-text="$store.quiz.competencyText"></span>
+                <div class="quiz-card-result-icon"></div>
               </div>
               <div class="quiz-frame-social-media">
                 <h2 class="quiz-header-social-media">Share results</h2>
                 <div class="social-media__link-popup-container"
                   x-data="{ clicked: false }">
                   <li id="link-logo"
+                    class="social-media__link"
                     @click="() => $store.quiz.share('link'); clicked = true;"
                     alt="link logo"></li>
                   <p x-show="clicked" x-transition.duration.500ms
-                    class="social-media__link-popup">Link
+                    class="social-media__link social-media__link-popup">Link
                     copied!</p>
                   <li id="x-logo" @click="() => $store.quiz.share('x')"
+                    class="social-media__link"
                     alt="x logo"></li>
                   <li id="instagram-logo"
+                    class="social-media__link"
                     @click="() => $store.quiz.share('instagram')"
                     alt="instagram logo"></li>
                   <li id="fb-logo"
+                    class="social-media__link"
                     @click="() => $store.quiz.share('facebook')"
                     alt="facebook logo"></li>
                 </div>

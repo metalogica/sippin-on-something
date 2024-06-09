@@ -1,5 +1,5 @@
-:root {
-  --border-radius: 0.25rem;
+:r4ot {
+  --border-r4dius: 0.25rem;
   --container-child-margin-top: 1.25rem;
   --container-child-margin-bottom: 1.25rem;
 
@@ -13,6 +13,11 @@
 
   --font-size-subheader-smallest-device: 1.85rem;
   --font-size-paragraph-smallest-device: 1.15rem;
+  
+  --font-size-header-large-desktop: 8rem;
+  --font-size-subheader-large-desktop: 3.2rem;
+
+  --modena-sans-letter-spacing: 0.1rem;
 }
 
 @font-face {
@@ -112,7 +117,8 @@ body {
   z-index: 100000;
   
   box-sizing: border-box;
-  font-size: 62.5%; // defines rem by browser default; 1rem == 10px
+  /* defines rem by browser default; 1rem == 10px */
+  font-size: 62.5%;  
   font-size: 1.6rem;  
 
   overflow: hidden;
@@ -208,6 +214,8 @@ h1.quiz-header-start {
 
   margin: 0;
   padding: 2rem 0 0 0;
+
+  position: relative;
 }
 
 .quiz-frame-choice-grid {
@@ -259,6 +267,7 @@ h1.quiz-header-choices {
 }
 
 .quiz-card-front {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
@@ -283,8 +292,8 @@ h1.quiz-header-choices {
 }
 
 .quiz-card-front-card-icon {
-  width: 1.6rem!important;
-  height: 1.6rem!important;
+  width: 1.6rem;
+  height: 1.6rem;
 
   background-image: url('./assets/svg/card-icon.svg');
   background-position: center;
@@ -293,6 +302,7 @@ h1.quiz-header-choices {
 }
 
 .quiz-card-back {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
@@ -346,10 +356,14 @@ h1.quiz-header-choices {
 }
 
 .text-quiz-choices-score {
-  margin-top: 1.2rem;
+  justify-self: flex-start;
+  position: absolute;
+  top: 2rem;
 }
 
-.text-round-number {
+span.text-round-number {
+  font-family: 'Modena Sans';
+  letter-spacing: var(--modena-sans-letter-spacing);
   font-size: 1.5rem;
   color: #F9F6ED;
 }
@@ -380,6 +394,8 @@ h1.quiz-header-choices {
   justify-content: center;
   align-items: center;
   gap: 1.8rem;
+
+  position: relative;
 }
 
 .quiz-result-card {
@@ -449,8 +465,8 @@ h2.quiz-header-social-media {
   list-style-type: none;
   border-radius: var(--border-radius);
 
-  max-width: 3rem;
-  max-height: 3rem;
+  width: 3rem;
+  height: 3rem;
 
   background-color: #681A39;
 }
@@ -545,15 +561,6 @@ h1.quiz-header-choices {
     height: 90vh;
   }
 
-  .quiz-frame-choice-grid {
-    height: 55%;
-    min-width: 95%;
-    gap: 0.5rem;
-
-    display: flex;
-    justify-content: space-evenly;
-  }
-
   .quiz-frame-result {
     width: 55%;
   }
@@ -586,15 +593,6 @@ h1.quiz-header-choices {
     font-size: 6rem;
   }
 
-  .quiz-header-choices {
-    font-size: 2.5rem;
-    height: 7rem;
-  }
-
-  .button-next {
-    margin-top: var(--container-child-margin-bottom);
-  }
-
   .text-quiz-competency, .text-quiz-final-score span {
     font-size: 2.5rem;
   }
@@ -608,16 +606,86 @@ h1.quiz-header-choices {
   }   
 
   .quiz-card-front-card-icon {
-    width: 6rem;
-    height: 6rem;
-  }
-
-  .quiz-card-front-card-icon {
-    width: 2.2rem!important;
-    height: 2.2rem!important;
+    width: 2.8rem!important;
+    height: 2.8rem!important;
   }
 
   .quiz-frame-result {
     height: 60rem;
+  }
+}
+
+/* large desktop */
+@media (min-width: 1200px) {
+  /* large desktop */
+  /* choices page */
+  h1.quiz-header-choices {
+    font-size: 4rem;
+    height: 8rem;
+    width: 60%;
+    line-height: 80px;
+  }
+  
+  .button-next {
+    width: 20rem;
+    height: 3.5rem;
+  }
+  
+  .quiz-frame-choice-grid {
+    height: 24rem;
+    min-width: 95%;
+    gap: 0.5rem;
+    
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .quiz-card {
+    font-size: 2rem;
+  }
+  
+  .quiz-card, .quiz-card-front, .quiz-card-back {
+    width: 15.5rem;
+    height: 23rem;
+    padding: 1rem;
+  }
+  
+  /* large desktop */
+  /* results page */
+  .quiz-frame-result {
+    justify-content: space-evenly;
+  }
+  
+  h2.quiz-subheader-result {
+    font-size: var(--font-size-header-large-desktop);
+  }
+  
+  .quiz-result-card {
+    height: 26rem;
+    width: 18rem;
+  }
+  
+  .quiz-card-result-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    
+    background-image: url('./assets/svg/card-icon.svg');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+  
+  h2.quiz-header-social-media {
+    font-size: var(--font-size-subheader-large-desktop);
+  }
+  
+  .social-media__link-popup-container {
+    gap: 1.5rem;
+  }
+
+  .social-media__link-popup-container .social-media__link {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
   }
 }
