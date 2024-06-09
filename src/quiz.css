@@ -693,6 +693,13 @@ h1.quiz-header-choices {
     height: 3.8rem;
     border-radius: 1rem;
   }
+  
+  .social-media__link-popup {
+    bottom: -4rem;
+    left: 0rem;
+    width: 3.8rem;
+    font-size: 1rem;
+  }
 
   #link-logo {  
     background-size: 60% 60%;
