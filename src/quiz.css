@@ -585,9 +585,10 @@ h1.quiz-header-choices {
   }
 }
 
-/* ipad */
-@media (min-width: 768px) {
-  .text-quiz-choices-score {
+/* medium desktop */
+@media (min-width: 1024px) {
+  /* LEGACY */
+ .text-quiz-choices-score {
     display: block;
   }
 
@@ -643,10 +644,8 @@ h1.quiz-header-choices {
     width: 2.8rem!important;
     height: 2.8rem!important;
   }
-}
+  /* END LEGACY */
 
-/* medium desktop */
-@media (min-width: 1024px) {
   /* choices page - medium desktop */
   h1.quiz-header-choices {
     font-size: var(--font-size-header--medium-desktop);
