@@ -1,4 +1,4 @@
-:r4ot {
+:root {
   --border-r4dius: 0.25rem;
   --container-child-margin-top: 1.25rem;
   --container-child-margin-bottom: 1.25rem;
@@ -14,7 +14,7 @@
   --font-size-subheader-smallest-device: 1.85rem;
   --font-size-paragraph-smallest-device: 1.15rem;
   
-  --font-size-header-large-desktop: 8rem;
+  --font-size-header-large-desktop: 5rem;
   --font-size-subheader-large-desktop: 3.2rem;
 
   --modena-sans-letter-spacing: 0.1rem;
@@ -684,8 +684,24 @@ h1.quiz-header-choices {
   }
 
   .social-media__link-popup-container .social-media__link {
-    width: 4rem;
-    height: 4rem;
+    width: 3.8rem;
+    height: 3.8rem;
     border-radius: 1rem;
+  }
+
+  #link-logo {  
+    background-size: 60% 60%;
+  }
+
+  #x-logo {  
+    background-size: 45% 45%;
+  }
+
+  #instagram-logo {  
+    background-size: 60% 60%;
+  }
+
+  #fb-logo {  
+    background-size: 60% 60%;
   }
 }
