@@ -517,9 +517,10 @@ h2.quiz-header-social-media {
 
 .quiz-wrapper li {
   box-sizing: border-box;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   transition: var(--transition-seconds);
+  border-radius: 0.5rem;
 }
 
 .quiz-wrapper li:hover {
@@ -538,8 +539,8 @@ h2.quiz-header-social-media {
 
 .social-media__link-popup {
   position: absolute;
-  bottom: -1.75rem;
-  left: -1rem;
+  bottom: -1.25rem;
+  left: 0.5rem;
   width: 5rem;
   text-align: center;
   font-size: 1rem;
@@ -554,6 +555,7 @@ h1.quiz-header-choices {
   line-height: 30px;
 }
 
+/* large mobile */
 @media (min-width: 768px) {
   .text-quiz-choices-score {
     display: block;
