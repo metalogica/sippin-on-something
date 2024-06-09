@@ -227,7 +227,12 @@ document.addEventListener('alpine:init', () => {
         )
       });
 
-      document.getElementById('chosen').id = '';
+      const choice = document.getElementById('chosen');
+      if (choice) {
+        choice.id = '';
+      } else {
+        return;
+      }
 
       document.querySelector('.button-next').classList.add('opacity-0');
 
